@@ -64,20 +64,20 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        
+
     }
 
     .img_box img {
         max-width: 120px;
         max-height: 120px;
         min-width: 80px;
-        
+
     }
 
     .img_one {
         position: relative;
         display: flex;
-        align-items: center;    
+        align-items: center;
         justify-content: center;
         margin: 2px;
         min-width: 80px;
@@ -91,15 +91,34 @@
         border-radius: 0 0 20px 0;
         display: inline;
         min-width: 20px;
-        padding-right: 10px;
+        padding:0 10px;
         text-align: center;
-        backdrop-filter: saturate(180%) blur(10px);
-        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: saturate(180%) blur(3px);
+        background-color: rgba(255, 255, 255, 0.6);
         font-weight: 900;
-        color:red;
     }
-    .img_one .type.jpeg , .img_one .type.jpg {
-        background-color: rgba(0, 0, 0, 0.12);
+
+    .img_one .type.jpeg,
+    .img_one .type.jpg {
+        color: rgb(77, 77, 255);
+    }
+    .img_one .type.gif {
+        color: rgb(77, 208, 255);
+    }
+    .img_one .type.png {
+        color: rgb(77, 255, 148);
+    }
+    .img_one .type.webp {
+        color: rgb(160, 255, 77);
+    }
+    .img_one .type.svg {
+        color: rgb(246, 255, 77);
+    }
+    .img_one .type.ico {
+        color: rgb(255, 130, 77);
+    }
+    .img_one .type.bmp {
+        color: rgb(255, 89, 77);
     }
 
     .img_one .size {
@@ -205,121 +224,7 @@
 
 
     /* --------------------------------------------- */
-    #loading{
+    #loading {
         display: none;
+        zoom: 6;
     }
-
-    .sk-folding-cube {
-        margin: 20px auto;
-        width: 40px;
-        height: 40px;
-        zoom: 2;
-        position: relative;
-        -webkit-transform: rotateZ(45deg);
-        transform: rotateZ(45deg);
-    }
-
-    .sk-folding-cube .sk-cube {
-        float: left;
-        width: 50%;
-        height: 50%;
-        position: relative;
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
-    }
-
-    .sk-folding-cube .sk-cube:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #333;
-        -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
-        animation: sk-foldCubeAngle 2.4s infinite linear both;
-        -webkit-transform-origin: 100% 100%;
-        -ms-transform-origin: 100% 100%;
-        transform-origin: 100% 100%;
-    }
-
-    .sk-folding-cube .sk-cube2 {
-        -webkit-transform: scale(1.1) rotateZ(90deg);
-        transform: scale(1.1) rotateZ(90deg);
-    }
-
-    .sk-folding-cube .sk-cube3 {
-        -webkit-transform: scale(1.1) rotateZ(180deg);
-        transform: scale(1.1) rotateZ(180deg);
-    }
-
-    .sk-folding-cube .sk-cube4 {
-        -webkit-transform: scale(1.1) rotateZ(270deg);
-        transform: scale(1.1) rotateZ(270deg);
-    }
-
-    .sk-folding-cube .sk-cube2:before {
-        -webkit-animation-delay: 0.3s;
-        animation-delay: 0.3s;
-    }
-
-    .sk-folding-cube .sk-cube3:before {
-        -webkit-animation-delay: 0.6s;
-        animation-delay: 0.6s;
-    }
-
-    .sk-folding-cube .sk-cube4:before {
-        -webkit-animation-delay: 0.9s;
-        animation-delay: 0.9s;
-    }
-
-    @-webkit-keyframes sk-foldCubeAngle {
-
-        0%,
-        10% {
-            -webkit-transform: perspective(140px) rotateX(-180deg);
-            transform: perspective(140px) rotateX(-180deg);
-            opacity: 0;
-        }
-
-        25%,
-        75% {
-            -webkit-transform: perspective(140px) rotateX(0deg);
-            transform: perspective(140px) rotateX(0deg);
-            opacity: 1;
-        }
-
-        90%,
-        100% {
-            -webkit-transform: perspective(140px) rotateY(180deg);
-            transform: perspective(140px) rotateY(180deg);
-            opacity: 0;
-        }
-    }
-
-    @keyframes sk-foldCubeAngle {
-
-        0%,
-        10% {
-            -webkit-transform: perspective(140px) rotateX(-180deg);
-            transform: perspective(140px) rotateX(-180deg);
-            opacity: 0;
-        }
-
-        25%,
-        75% {
-            -webkit-transform: perspective(140px) rotateX(0deg);
-            transform: perspective(140px) rotateX(0deg);
-            opacity: 1;
-        }
-
-        90%,
-        100% {
-            -webkit-transform: perspective(140px) rotateY(180deg);
-            transform: perspective(140px) rotateY(180deg);
-            opacity: 0;
-        }
-    }
-
-  

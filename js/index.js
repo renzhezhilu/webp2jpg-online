@@ -56,7 +56,7 @@ async function readFiles() {
             allOkFiles.map(x => {
                 img_html = img_html +
                     `<div class="img_one">
-                        <i class="type ${x.type}">${x.type}</i>
+                        <p class="type ${x.type}">${x.type}</p>
                         <p class="size">${x.width}x${x.height}</p>
                         <img src="${x.base64}" alt="">
                     </div>`
