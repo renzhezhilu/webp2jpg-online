@@ -9,6 +9,7 @@ let input = document.getElementById("files")
 input.addEventListener('change', readFiles, false);
 //
 async function readFiles() {
+    document.getElementById('loading').style.display = 'block'
     let files = [...this.files]
     allOkFiles = []
     files.map(async (file, index) => {
@@ -47,7 +48,7 @@ async function readFiles() {
                     type: "blob"
                 })
                 .then(function(content) {
-                    saveAs(content, `example.zip`)
+                    funDownload(content, `${time}.zip`)
                 });
             // 显示图片
             let img_box = document.getElementById("img_box")
@@ -61,6 +62,8 @@ async function readFiles() {
                     </div>`
             })
             img_box.innerHTML = img_html
+            document.getElementById('loading').style.display = 'none'
+
         }
     })
 }

@@ -205,10 +205,15 @@
 
 
     /* --------------------------------------------- */
+    #loading{
+        display: none;
+    }
+
     .sk-folding-cube {
         margin: 20px auto;
         width: 40px;
         height: 40px;
+        zoom: 2;
         position: relative;
         -webkit-transform: rotateZ(45deg);
         transform: rotateZ(45deg);
@@ -316,3 +321,5 @@
             opacity: 0;
         }
     }
+
+  
