@@ -4,60 +4,85 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <link rel="stylesheet" href="">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/index.css">
+
 </head>
 
-<body>
-    <input type="file" class="file" name="imgfile" id="imgfile" placeholder="请选择文件">
-    <img src="" id="showImg">
-    <img src="" id="showImg_min">
+<body id="body" class="">
+    <!--  -->
+    <input type="file" name="files" id="files" accept=".jpeg,.jpg,.png,.gif,.webp,.svg,.ico,.bmp" multiple />
+
+    <!--  -->
+    <output id="list"></output>
+    <p class="p2">选择jpeg、jpg、png、gif、webp文件</p>
+
+    <label class="drag" for="files">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+        <div class="con">
+            <div class="img_box" id="img_box">
+
+                <div class="img_one">
+                    <i class="type">gif</i>
+                    <p class="size">200x100</p>
+                    <img src="./images/test01.jpg" alt="">
+                </div>
+                <div class="img_one">
+                        <i class="type">webp</i>
+                        <p class="size">201110x101133310</p>
+                        <img src="./images/test02.jpg" alt="">
+                    </div>
+                    <div class="img_one">
+                            <i class="type">gif</i>
+                            <p class="size">200x100</p>
+                            <img src="./images/test04.jpeg" alt="">
+                        </div>
+                <div class="img_one">
+                    <img src="./images/test01.jpg" alt="">
+                </div>
+                <div class="img_one">
+                    <img src="./images/test01.jpg" alt="">
+                </div>
+                <div class="img_one">
+                    <img src="./images/test01.jpg" alt="">
+                </div>
+                <div class="img_one">
+                    <img src="./images/test01.jpg" alt="">
+                </div>
+                <div class="img_one">
+                    <img src="./images/test01.jpg" alt="">
+                </div>
+                <!-- <img src="./images/test02.jpg" alt=""> -->
+            </div>
+            <p class="p1">+</p>
+        </div>
+        <div>
+            点击选择/拖放文件（可批量）
+            Click on select/drag file (batch)
+        </div>
+    </label>
+    <!--  -->
+    <!-- <div class="download_but">
+        下载 159000303204.zip（10张）
+    </div> -->
+    <!--  -->
+    <div class="ready">
+        <p>一切就绪！ok!</p>
+    </div>
+    <div class="jg" id="jg"></div>
+
+    <!--  -->
     <canvas id="can"></canvas>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
-    <script>
-        let input = document.getElementById("imgfile");
-        //检测浏览器是否支持FileReader
-        if (typeof(FileReader) === 'undefined') {
-            result.innerHTML = "抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！";
-            input.setAttribute('disabled', 'disabled');
-        } else {
-            //开启监听
-            input.addEventListener('change', readFile, false);
-        }
-        let suofang = function(base64, bili, callback) {
-            console.log("执行缩放程序,bili=" + bili);
-            //处理缩放，转格式
-            let _img = new Image();
-            _img.src = base64;
-            _img.onload = function() {
-                let _canvas = document.getElementById("can");
-                let w = this.width / bili;
-                let h = this.height / bili;
-                _canvas.setAttribute("width", w);
-                _canvas.setAttribute("height", h);
-                _canvas.getContext("2d").drawImage(this, 0, 0, w, h);
-                var base64_ok = _canvas.toDataURL("image/jpeg",0.1);
-                
-                $("#showImg_min").attr("src", base64_ok);
-
-            }
-        }
-
-        function readFile() {
-            let file = this.files[0];
-            let reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function(e) {
-                base64Code = this.result;
-                //把得到的base64赋值到img标签显示
-                $("#showImg").attr("src", base64Code);
-                suofang(base64Code, 2)
-
-            }
-        }
-    </script>
-
+    <!--  -->
+    <script src="./js/jszip.min.js"></script>
+    <script src="./js/FileSaver.js"></script>
+    <script src="./js/index.js"></script>
 
 </body>
 
