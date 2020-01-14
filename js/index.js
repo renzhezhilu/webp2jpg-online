@@ -1,16 +1,21 @@
 let allOkFiles = [],
-    alltType = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.ico', '.bmp'],
-    outType = ['.jpeg', '.png', '.webp']
+    alltType = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'ico', 'bmp'],
+    outType = ['jpeg', 'png', 'webp', 'ico'],
+    config = {}
 
 
 
 
 let input = document.getElementById("files")
-input.addEventListener('change', readFiles, false);
-//
-async function readFiles() {
+input.addEventListener('change', function() {
+    readFiles([...this.files])
+}, false);
+// 读取图片
+async function readFiles(allFiles) {
+    let files = [...allFiles]
+    if (files.length === 0) return
     document.getElementById('loading').style.display = 'block'
-    let files = [...this.files]
+    setConfig()
     allOkFiles = []
     files.map(async (file, index) => {
         let base64 = await file2Base64(file)
@@ -19,11 +24,11 @@ async function readFiles() {
             let n = alltType.filter(f => file.name.endsWith(f))
             return {
                 name: file.name.replace(n[0], ''),
-                type: n[0].substr(1)
+                type: n[0]
             }
         }
         // 
-        let blob = await base642file(base64, outType[0])
+        let blob = await base642file(base64, config.type, config.size, config.quality)
         allOkFiles.push({
             name: name().name,
             type: name().type,
@@ -33,14 +38,14 @@ async function readFiles() {
             height: wAndH.h,
             data: blob
         })
-        if (files.length - 1 === index) {
+        if (files.length === allOkFiles.length) {
             console.log(allOkFiles)
             //下载
             let zip = new JSZip()
             let time = new Date().getTime()
             let img = zip.folder(time);
             allOkFiles.map(x => {
-                img.file(`${x.name}${outType[0]}`, x.data, {
+                img.file(`${x.name}.${config.type}`, x.data, {
                     base64: false
                 })
             })
@@ -49,6 +54,7 @@ async function readFiles() {
                 })
                 .then(function(content) {
                     funDownload(content, `${time}.zip`)
+                    document.getElementById('loading').style.display = 'none'
                 });
             // 显示图片
             let img_box = document.getElementById("img_box")
@@ -62,10 +68,15 @@ async function readFiles() {
                     </div>`
             })
             img_box.innerHTML = img_html
-            document.getElementById('loading').style.display = 'none'
 
         }
     })
+}
+// 获取参数
+function setConfig() {
+    config.type = document.querySelector('#select_type').value
+    config.size = document.querySelector('#select_size').value
+    config.quality = document.querySelector('#select_quality').value
 }
 // 生成base64
 function file2Base64(file) {
@@ -93,7 +104,7 @@ function getImagesWidthHeight(base64) {
 
 }
 // base64还原成图片  type = 'jpeg/png/webp'  size 尺寸   quality 压缩质量
-function base642file(base64, type = 'jpeg', size = 1, quality = 1) {
+function base642file(base64, type = 'jpeg', size = 1, quality = 0.88) {
     return new Promise((ret, res) => {
         let img = new Image()
         img.src = base64
@@ -129,3 +140,36 @@ function funDownload(content, filename = '未命名') {
     document.body.removeChild(eleLink)
     // location.reload() 
 }
+
+
+function dropzone() {
+    let holder = document.getElementById('body')
+    //拖住，重复执行
+    holder.ondragover = function(event) {
+        // console.log(event)
+        let close = setTimeout(() => {
+            holder.className = ''
+        }, 3000)
+        if (holder.className !== 'ondragover') {
+            holder.className = 'ondragover'
+        } else {
+            clearTimeout(close)
+        }
+        return false
+    }
+    holder.ondragend = function(event) {
+        holder.className = ''
+        console.log('ondragend')
+        return false
+    }
+    // 放下
+    holder.ondrop = function(event) {
+        event.preventDefault()
+        holder.className = ''
+        let files = [...event.dataTransfer.files]
+        files = files.filter(f => alltType.includes(f.type.split('/')[1]))
+        console.log(files)
+        readFiles(files)
+    }
+}
+dropzone()

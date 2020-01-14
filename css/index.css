@@ -165,9 +165,13 @@
 
     .p2 {
         font-size: 30px;
-        line-height: 70px;
+        line-height: 38px;
+        padding: 25px 0;
         text-align: center;
         font-weight: 900;
+    }
+    .p2 label{
+        font-size: 14px;
     }
 
     #files {
@@ -202,10 +206,10 @@
         border: 10px solid transparent;
         box-sizing: border-box;
         background:
-            linear-gradient(rgb(33, 96, 76),
-                rgba(33, 96, 76, 1)) padding-box,
+            linear-gradient(rgb(55, 78, 255),
+                rgba(55, 78, 255,1)) padding-box,
             repeating-linear-gradient(-45deg,
-                black 0, rgba(100, 167, 146, 0.8) 25%,
+                black 0, rgba(55, 78, 255,.8) 25%,
                 white 0, white 50%) 0/1em 1em;
         animation: ggg 12s linear infinite;
         opacity: .8;
@@ -228,3 +232,13 @@
         display: none;
         zoom: 6;
     }
+    select {
+        height: 30px;
+        font-size: 15px;
+        background-color: #fff;
+        border:2px solid rgb(55, 78, 255);
+        border-left: 5px solid rgb(55, 78, 255);
+        padding: 0 10px;
+
+    }
+ 
