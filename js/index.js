@@ -111,7 +111,7 @@ function getImagesWidthHeight(base64) {
 
 }
 // base64还原成图片  type = 'jpeg/png/webp'  size 尺寸   quality 压缩质量
-function base642file(base64, type = 'jpeg', size = 1, quality = 0.88) {
+function base642file(base64, type = 'jpeg', size = 1, quality = 0.92) {
     return new Promise((ret, res) => {
         let img = new Image()
         img.src = base64
