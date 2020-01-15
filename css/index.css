@@ -68,8 +68,8 @@
     }
 
     .img_box img {
-        max-width: 120px;
-        max-height: 120px;
+        max-width: 180px;
+        max-height: 180px;
         min-width: 80px;
 
     }
@@ -132,7 +132,8 @@
         z-index: 1;
         width: 100%;
         backdrop-filter: saturate(180%) blur(10px);
-        background-color: rgba(0, 0, 0, 0.12);
+        background-color: rgba(0, 0, 0, 0.38);
+        color: #fff;
         bottom: 0;
         left: 0
     }
