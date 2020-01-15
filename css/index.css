@@ -253,6 +253,11 @@
         padding: 0 10px;
 
     }
+    [type=checkbox] {
+        zoom:2;
+        position: relative;
+        top: 2px;
+    }
 
     /* --------------------------------------------- */
     /* 烟花 - from https://codepen.io/yshlin/pen/ylDEk */

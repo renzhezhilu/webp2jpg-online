@@ -1,5 +1,5 @@
 let allOkFiles = [],
-    alltType = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'ico', 'bmp'],
+    alltType = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'ico', 'bmp','vnd.microsoft.icon'],
     outType = ['jpeg', 'png', 'webp', 'ico'],
     config = {}
 
@@ -40,27 +40,41 @@ async function readFiles(allFiles) {
         })
         if (files.length === allOkFiles.length) {
             console.log(allOkFiles)
-            //下载
-            let zip = new JSZip()
-            let time = new Date().getTime()
-            let img = zip.folder(time);
-            allOkFiles.map(x => {
-                img.file(`${x.name}.${config.type}`, x.data, {
-                    base64: false
+            //不打包
+            if (config.isZip) {
+                allOkFiles.map(x => {
+                    funDownload(x.data, `${x.name}.${config.type}`)
                 })
-            })
-            zip.generateAsync({
-                    type: "blob"
+                document.getElementById('loading').style.display = 'none'
+                document.getElementById('pyro').innerHTML =
+                        `
+                        <div class="before"></div>
+                        <div class="after"></div>
+                        `
+            }
+            //打包
+            else {
+                let zip = new JSZip()
+                let time = new Date().getTime()
+                let img = zip.folder(time);
+                allOkFiles.map(x => {
+                    img.file(`${x.name}.${config.type}`, x.data, {
+                        base64: false
+                    })
                 })
-                .then(function(content) {
-                    funDownload(content, `${time}.zip`)
-                    document.getElementById('loading').style.display = 'none'
-                    document.getElementById('pyro').innerHTML = 
-                    `
-                    <div class="before"></div>
-                    <div class="after"></div>
-                    `
-                });
+                zip.generateAsync({
+                        type: "blob"
+                    })
+                    .then(function(content) {
+                        funDownload(content, `${time}.zip`)
+                        document.getElementById('loading').style.display = 'none'
+                        document.getElementById('pyro').innerHTML =
+                            `
+                        <div class="before"></div>
+                        <div class="after"></div>
+                        `
+                    });
+            }
             // 显示图片
             let img_box = document.getElementById("img_box")
             let img_html = ``
@@ -82,6 +96,7 @@ function setConfig() {
     config.type = document.querySelector('#select_type').value
     config.size = document.querySelector('#select_size').value - 0
     config.quality = document.querySelector('#select_quality').value - 0
+    config.isZip = document.querySelector('#select_isZip').checked
     console.log(config)
 
 }
@@ -174,6 +189,8 @@ function dropzone() {
         event.preventDefault()
         holder.className = ''
         let files = [...event.dataTransfer.files]
+        console.log(files);
+        
         files = files.filter(f => alltType.includes(f.type.split('/')[1]))
         console.log(files)
         readFiles(files)
