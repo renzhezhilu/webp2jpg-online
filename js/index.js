@@ -3,9 +3,6 @@ let allOkFiles = [],
     outType = ['jpeg', 'png', 'webp', 'ico'],
     config = {}
 
-
-
-
 let input = document.getElementById("files")
 input.addEventListener('change', function() {
     readFiles([...this.files])
