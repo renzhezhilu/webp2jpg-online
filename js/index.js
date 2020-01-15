@@ -1,13 +1,13 @@
 let allOkFiles = [],
-    alltType = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'ico', 'bmp','vnd.microsoft.icon'],
+    alltType = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'ico', 'bmp', 'vnd.microsoft.icon'],
     outType = ['jpeg', 'png', 'webp', 'ico'],
     config = {}
 
 let input = document.getElementById("files")
 input.addEventListener('change', function() {
     readFiles([...this.files])
-}, false);
-// 读取图片
+}, false)
+// 读取并转换图片,全部放进allOkFiles
 async function readFiles(allFiles) {
     let files = [...allFiles]
     if (files.length === 0) return
@@ -15,7 +15,9 @@ async function readFiles(allFiles) {
     setConfig()
     allOkFiles = []
     files.map(async (file, index) => {
+        //获取base64
         let base64 = await file2Base64(file)
+        //获取宽和高
         let wAndH = await getImagesWidthHeight(base64)
         let name = () => {
             let n = alltType.filter(f => file.name.endsWith(f))
@@ -24,7 +26,7 @@ async function readFiles(allFiles) {
                 type: n[0]
             }
         }
-        // 
+        // 转换
         let blob = await base642file(base64, config.type, config.size, config.quality)
         allOkFiles.push({
             name: name().name,
@@ -35,6 +37,7 @@ async function readFiles(allFiles) {
             height: wAndH.h,
             data: blob
         })
+        //遍历完所有文件后
         if (files.length === allOkFiles.length) {
             console.log(allOkFiles)
             //不打包
@@ -44,16 +47,16 @@ async function readFiles(allFiles) {
                 })
                 document.getElementById('loading').style.display = 'none'
                 document.getElementById('pyro').innerHTML =
-                        `
-                        <div class="before"></div>
-                        <div class="after"></div>
-                        `
+                    `
+                    <div class="before"></div>
+                    <div class="after"></div>
+                    `
             }
             //打包
             else {
                 let zip = new JSZip()
                 let time = new Date().getTime()
-                let img = zip.folder(time);
+                let img = zip.folder(time)
                 allOkFiles.map(x => {
                     img.file(`${x.name}.${config.type}`, x.data, {
                         base64: false
@@ -67,10 +70,10 @@ async function readFiles(allFiles) {
                         document.getElementById('loading').style.display = 'none'
                         document.getElementById('pyro').innerHTML =
                             `
-                        <div class="before"></div>
-                        <div class="after"></div>
-                        `
-                    });
+                            <div class="before"></div>
+                            <div class="after"></div>
+                            `
+                    })
             }
             // 显示图片
             let img_box = document.getElementById("img_box")
@@ -84,7 +87,6 @@ async function readFiles(allFiles) {
                     </div>`
             })
             img_box.innerHTML = img_html
-
         }
     })
 }
@@ -95,7 +97,6 @@ function setConfig() {
     config.quality = document.querySelector('#select_quality').value - 0
     config.isZip = document.querySelector('#select_isZip').checked
     console.log(config)
-
 }
 // 生成base64
 function file2Base64(file) {
@@ -103,7 +104,7 @@ function file2Base64(file) {
         let reader = new FileReader()
         reader.readAsDataURL(file)
         reader.onload = function(e) {
-            console.log(e);
+            console.log(e)
             ret(this.result)
         }
     })
@@ -160,7 +161,7 @@ function funDownload(content, filename = '未命名') {
     // location.reload() 
 }
 
-
+// 设置拖放文件
 function dropzone() {
     let holder = document.getElementById('body')
     //拖住，重复执行
@@ -186,10 +187,9 @@ function dropzone() {
         event.preventDefault()
         holder.className = ''
         let files = [...event.dataTransfer.files]
-        console.log(files);
-        
+        //过滤文件
         files = files.filter(f => alltType.includes(f.type.split('/')[1]))
-        console.log(files)
+        // console.log(files)
         readFiles(files)
     }
 }
