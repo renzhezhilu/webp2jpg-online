@@ -169,13 +169,18 @@
         opacity: .3;
     }
 
-    .p2 {
+    .p2  {
         font-size: 30px;
         line-height: 38px;
         padding: 25px 0;
         text-align: center;
         font-weight: 900;
     }
+    .p2 h1, .p2 h2{
+        font-size: 30px;
+        line-height: 38px;
+    }
+   
 
     .p2 label {
         font-size: 14px;
