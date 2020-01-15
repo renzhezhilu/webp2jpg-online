@@ -1,4 +1,4 @@
-<center>
+<p align="center">
 
 ![title](./images/og_image.png)
 
@@ -8,7 +8,7 @@
 ![title](./images/badges/02.svg)
 ![title](./images/badges/03.svg)
 
-</center>
+</p>
 
 ## webp2jpg-online 介绍
 
