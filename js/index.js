@@ -55,6 +55,11 @@ async function readFiles(allFiles) {
                 .then(function(content) {
                     funDownload(content, `${time}.zip`)
                     document.getElementById('loading').style.display = 'none'
+                    document.getElementById('pyro').innerHTML = 
+                    `
+                    <div class="before"></div>
+                    <div class="after"></div>
+                    `
                 });
             // 显示图片
             let img_box = document.getElementById("img_box")
@@ -75,8 +80,10 @@ async function readFiles(allFiles) {
 // 获取参数
 function setConfig() {
     config.type = document.querySelector('#select_type').value
-    config.size = document.querySelector('#select_size').value
-    config.quality = document.querySelector('#select_quality').value
+    config.size = document.querySelector('#select_size').value - 0
+    config.quality = document.querySelector('#select_quality').value - 0
+    console.log(config)
+
 }
 // 生成base64
 function file2Base64(file) {
