@@ -30,6 +30,9 @@ https://renzhezhilu.github.io/webp2jpg-online/
 
 ![demo](./images/demo.gif)
 
+## 🔧待解决
+1.gif转webp时只能转第一帧(2020-2-15)
+
 ## 核心原理
 
 [HTMLCanvasElement.toBlob()](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toBlob)

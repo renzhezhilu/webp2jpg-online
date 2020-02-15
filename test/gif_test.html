@@ -1,0 +1,88 @@
+<input type="file" id="files" accept=".jpeg,.jpg,.png,.gif,.webp,.svg,.ico,.bmp" multiple>
+<canvas id="can" class="play-pause"></canvas>
+<img id="imgsss" src="" alt="">
+<script src="https://unpkg.com/konva@4.1.2/konva.min.js"></script>
+<script src="https://unpkg.com/gifler@0.1.0/gifler.min.js"></script>
+<script src="https://jnordberg.github.io/gif.js/gif.js?v=3"></script>
+
+<script>
+    let input = document.getElementById("files")
+    let imgsss = document.getElementById("imgsss")
+    let _canvas = document.getElementById("can")
+    input.addEventListener('change', function() {
+        let files = [...this.files]
+        let b = window.URL.createObjectURL(files[0])
+        console.log(b)
+        // let img = new Image()
+        // img.src = b 
+        // imgsss.src = b 
+        // console.log(img)
+
+        //     gifler(b)
+        //     .animate('canvas.play-pause')
+        //     .then(function(animator) {
+        //     });
+        var gif = new GIF();
+        let CCC = 0
+        gifler(b).frames(_canvas, function(ctx, frame) {
+            CCC++
+            if (CCC > 10) {
+                gif.render();
+                gif.on('finished', function(blob) {
+                    // window.open(URL.createObjectURL(blob));
+                funDownload(blob, `1234455.webp`)
+
+                });
+                return
+            }
+            // update canvas size
+            _canvas.width = frame.width;
+            _canvas.height = frame.height;
+            // update canvas that we are using for Konva.Image
+            _canvas.getContext("2d").drawImage(frame.buffer, 0, 0, this.width, this.height)
+            // redraw the layer
+            console.log(gif);
+
+            _canvas.toBlob(function(blob) {
+                let img = new Image()
+                img.src = window.URL.createObjectURL(blob)
+                gif.addFrame(img);
+
+                // funDownload(blob, `1234455.webp`)
+                console.log(blob);
+
+
+            }, `image/webp`, 0.1)
+
+        });
+
+
+
+        //     img.onload = function() {
+
+        //         _canvas.setAttribute("width", this.width)
+        //         _canvas.setAttribute("height", this.height)
+        //         _canvas.getContext("2d").drawImage(this, 0, 0, this.width, this.height)
+        //         //转格式
+        //         _canvas.toBlob(function(blob) {
+        //             funDownload(blob, `${files[0].name}.webp`)
+        //         }, `image/webp`, 0.1)
+        //     }
+        // console.log(b)
+
+    }, false)
+
+    //下载文件
+    function funDownload(blob, filename = '未命名') {
+        let eleLink = document.createElement('a')
+        eleLink.download = filename
+        eleLink.style.display = 'none'
+        eleLink.href = URL.createObjectURL(blob)
+        // 触发点击
+        document.body.appendChild(eleLink)
+        eleLink.click()
+        // 然后移除
+        document.body.removeChild(eleLink)
+        // location.reload() 
+    }
+</script>
