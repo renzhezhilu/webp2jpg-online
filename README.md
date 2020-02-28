@@ -37,7 +37,7 @@ https://renzhezhilu.github.io/webp2jpg-online/
 
 [HTMLCanvasElement.toBlob()](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toBlob)
 
-https://codepen.io/random233/pen/PowBBaa?editors=1000
+<!-- https://codepen.io/random233/pen/PowBBaa?editors=1000 -->
 ``` javascript
 canvas.toBlob(callback, type, encoderOptions);
 ```
