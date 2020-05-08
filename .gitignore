@@ -2,6 +2,7 @@
 node_modules
 /dist
 /test
+/psd
 
 # local env files
 .env.local

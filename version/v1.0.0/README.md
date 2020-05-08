@@ -42,10 +42,3 @@ https://renzhezhilu.github.io/webp2jpg-online/
 canvas.toBlob(callback, type, encoderOptions);
 ```
 
-## 相关技术
-localForage：https://localforage.github.io/localForage/
-测试：https://codepen.io/random233/pen/MWavgME?editors=1000
-
-
-
-
