@@ -21,8 +21,7 @@
     <meta property=og:site_name content="webp2jpg-online-Picture converter">
     <meta property=og:title content="webp2jpg-online-在线图片格式转化器(无需上传)-web2jpg-Online image format converter (no upload required)">
     <meta property=og:description content="在线图片格式转化器,可将jpeg、jpg、png、gif、webp、svg、ico、bmp文件转化为jpeg、png、webp、ico文件。无需上传文件，本地即可完成转换。Online picture format converter, can convert jpeg, jpg, png, gif, webp, svg, ico, bmp files into jpeg, png, webp, ico files. No need to upload files, conversion can be done locally。オンライン画像形式コンバータは、jpeg、jpg、png、gif、webp、svg、ico、bmpファイルをjpeg、png、webp、icoファイルに変換できます。 ファイルをアップロードする必要はありません。変換はローカルで実行できます。Convertidor de formato de imagen en línea, puede convertir archivos jpeg, jpg, png, gif, webp, svg, ico, bmp en archivos jpeg, png, webp, ico. No es necesario cargar archivos, la conversión se puede hacer localmente">
-    <meta property=og:image content=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/og_image.png> <meta property=og:url content=https://renzhezhilu.github.io/webp2jpg-online/>
-    <meta property=og:type content=article>
+    <meta property=og:image content=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/og_image.png> <meta property=og:url content=https://renzhezhilu.github.io/webp2jpg-online/> <meta property=og:type content=article>
     <link rel=apple-touch-icon href=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/apple-touch-iphone.png> <link rel="shortcut icon" href=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/favicon.ico> <script>var _hmt = _hmt || [];
     (function() {
     var hm = document.createElement("script");
@@ -30,15 +29,6 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
     })();</script>
-</head>
-
-<body>
-    <div id=page_loading>
-        <div>
-            <div><span id=page_loading_num style="font-size:80px;line-height: 80px;">0</span> %</div>
-            <p>loading...</p>
-        </div>
-    </div>
     <style>
         #page_loading {
             position: fixed;
@@ -52,9 +42,7 @@
             font-size: 26px;
             line-height: 26px;
             font-weight: 100;
-
             font-family: Avenir, "微软雅黑", Helvetica, Arial, sans-serif;
-
         }
 
         #page_loading,
@@ -64,16 +52,33 @@
             padding: 0;
             margin: 0;
         }
-    </style><noscript><strong>We're sorry but v.2.0.0 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
+    </style>
+</head>
+
+<body>
+    <div id=page_loading>
+        <div>
+            <div><span id=page_loading_num style="font-size:80px;line-height: 80px;">0</span> %</div>
+            <p>loading...</p>
+        </div>
+    </div><noscript><strong>We're sorry but v.2.0.0 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
     <div id=app></div>
-    <script src=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/localforage.min.js> </script> <script id=wasmjs></script>
-    <script id=appjs02></script>
-    <script id=appjs01></script>
+    <script src=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/localforage.min.js> </script> <script>
+        var Module = {}
+    </script>
     <script>
-        var version = 'v2.0.8'
+        var version = 'v2.0.1'
         if (localStorage.getItem('version') !== version) {
             localforage.clear()
             console.log('版本更新');
+        }
+
+        function creatScript(src, name) {
+            let body = document.querySelector('body')
+            let script = document.createElement('script')
+            script.src = src
+            script.className = name
+            body.appendChild(script)
         }
         async function fileSaveLocal(fileUrl, name) {
             try {
@@ -106,14 +111,12 @@
             }
         }
 
-        var Module = {}
+
 
         async function GO() {
             let loading = document.getElementById('page_loading')
             let num = document.getElementById('page_loading_num')
             let wasmjs_dom = document.getElementById('wasmjs')
-            let appjs02_dom = document.getElementById('appjs02')
-            let appjs01_dom = document.getElementById('appjs01')
 
             let get = [{
                     url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/wasm-im.wasm',
@@ -124,16 +127,16 @@
                     name: 'wasm-im.js'
                 },
                 {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/appjs01.js',
-                    name: 'appjs01.js'
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/chunk.js',
+                    name: 'chunk.js'
                 },
                 {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/appjs02.js',
-                    name: 'appjs02.js'
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/app.js',
+                    name: 'app.js'
                 },
             ]
             let ok = []
-            get.map(m => {
+            get.map((m,index) => {
                 fileSaveLocal(m.url, m.name)
                     .then(d => {
                         ok.push(d)
@@ -143,14 +146,19 @@
                             })
                             return m
                         })
-                        num.textContent = num.textContent - 0 + 20
+                        num.textContent = ((index / get.length * 100).toFixed(0) - 0)
                         if (ok.length === get.length) {
                             if (ok.every(e => e.local)) {
                                 console.log('完成。。。。', ok);
-                                Module.locateFile = _ => get.map(m => m.name === 'wasm-im.wasm')[0].url
-                                wasmjs_dom.src = get.map(m => m.name === 'wasm-im.js')[0].url
-                                appjs01_dom.src = get.map(m => m.name === 'appjs02.js')[0].url
-                                appjs02_dom.src = get.map(m => m.name === 'appjs01.js')[0].url
+                                Module.locateFile = _ => get.filter(m => m.name === 'wasm-im.wasm')[0].url
+
+                                let s1 = get.filter(m => m.name === 'wasm-im.js')[0]
+                                creatScript(s1.url, s1.name)
+                                let s2 = get.filter(m => m.name === 'chunk.js')[0]
+                                creatScript(s2.url, s2.name)
+                                let s3 = get.filter(m => m.name === 'app.js')[0]
+                                creatScript(s3.url, s3.name)
+
                                 loading.style.display = 'none'
                             } else {
                                 localStorage.setItem('version', version)
@@ -160,17 +168,6 @@
                     })
             })
 
-
-            // let appjs02 = await fileSaveLocal('https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/appjs02.js', 'appjs02', 'application/javascript')
-            // 
-            // appjs02_dom.src = appjs02
-            // num.textContent = "70"
-
-            // let appjs01 = await fileSaveLocal('https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/appjs01.js', 'appjs01', 'application/javascript')
-            // 
-            // appjs01_dom.src = appjs01
-            // console.log(appjs01,appjs02);
-            // num.textContent = "100"
 
 
         }
