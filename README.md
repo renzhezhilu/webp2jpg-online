@@ -59,12 +59,12 @@ https://renzhezhilu.github.io/webp2jpg-online/
 
 ||谷歌Chrome|火狐Firefox|苹果Safari|微软Edge|IE|
 |---|-----|----|----|-----|---|
-|Windows|✅|✅|✅|✅| ❌ 蛤？|
-|Mac OS|✅|✅|✅|✅|-|
-|Iphone|☑️|☑️| ✅ | - |-|
+|Windows|✔️|✔️|-|✔️| ❌ 蛤？|
+|Mac OS|✔️|✔️|✔️|✔️|-|
+|Iphone|☑️|☑️| ✔️ | - |-|
 |Android|?|?|?| -|-|
 
-> ✅ 运行良好 ☑️ 部分支持 ❌ 不支持 ? 未知
+> ✔️ 运行良好 ☑️ 部分支持 ❌ 不支持 ? 未知
 
 ## 核心原理
 ### Canvas API
