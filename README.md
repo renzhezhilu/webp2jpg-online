@@ -62,9 +62,9 @@ https://renzhezhilu.github.io/webp2jpg-online/
 |Windows|✅|✅|✅|✅|
 |Mac OS|✅|✅|✅|✅|
 |Iphone|☑️|☑️| ✅ | - |
-|Android|❔|❔|❔|
+|Android|❔|❔|❔| -|
 
-> `✅允许良好 ☑️部分不支持 ❌不支持 ❔未知`
+> ✅允许良好 ☑️ 部分支持 ❌不支持 ❔未知
 
 ## 核心原理
 ### Canvas API
