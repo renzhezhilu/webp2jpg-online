@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>要使用的视频：</p>
+
+    <video id="video1" controls width="270" autoplay>
+        <source src="mov_bbb.mp4" type='video/mp4'>
+    </video>
+
+    <p>画布（每 20 毫秒，代码就会绘制视频的当前帧）：</p>
+
+    <canvas id="myCanvas" width="270" height="135" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+    <canvas id="ccccc" width="270" height="135" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+
+    <img id="img" src="./g.gif" alt="">
+
+    <script>
+        // var v = document.getElementById("video1");
+        // var c = document.getElementById("myCanvas");
+        // ctx = c.getContext('2d');
+
+        // v.addEventListener('play', function() {
+        //     var i = window.setInterval(function() {
+        //         ctx.drawImage(v, 0, 0, 270, 135)
+        //     }, 20);
+        // }, false);
+        // v.addEventListener('pause', function() {
+        //     window.clearInterval(i);
+        // }, false);
+        // v.addEventListener('ended', function() {
+        //     clearInterval(i);
+        // }, false);
+
+        // let xhr = new XMLHttpRequest();
+        // xhr.open('get', './g.gif');
+        // xhr.setRequestHeader("Content-Type", "image/gif");
+        // xhr.send();
+        // xhr.onreadystatechange = function() {
+        //     if (xhr.readyState === 4) {
+        //         if (xhr.status === 200) {
+        //             console.log('response', xhr.response);
+        //         }
+        //     }
+        // }
+
+        const img = document.getElementById("img");
+        const ccc = document.getElementById("ccccc");
+        const ctx22 = ccc.getContext('2d');
+        render();
+
+        function render() {
+            ctx22.drawImage(img, 0, 0);
+            window.requestAnimationFrame(render);
+        }
+    </script>
+
+</body>
+
+</html>

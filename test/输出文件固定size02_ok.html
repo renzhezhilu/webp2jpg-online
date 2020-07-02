@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <input id="files" type="file" multiple />
+    <h4 id="t1"></h4>
+    <img id="img01" src="" alt="">
+    <canvas id="can"></canvas>
+    <h4 id="t2"></h4>
+    <img id="img02" src="" alt="">
+    <script>
+        let input = document.getElementById("files")
+
+        let img01 = document.getElementById("img01")
+        let img02 = document.getElementById("img02")
+        input.addEventListener('change', function() {
+            console.log(this.files[0]);
+            let files = this.files
+            let img = new Image()
+            let count = 0
+            img.src = URL.createObjectURL(this.files[0])
+            img.onload = function() {
+                console.log(this);
+                let _canvas = document.getElementById("can")
+                //处理缩放
+                let w = this.width
+                let h = this.height
+                _canvas.setAttribute("width", w)
+                _canvas.setAttribute("height", h)
+                _canvas.getContext("2d").drawImage(this, 0, 0, w, h)
+                //转格式
+                console.log(_canvas);
+
+                //输出100%质量
+                _canvas.toBlob(function(blob) {
+                    console.log(blob, '完成0.81');
+                    let size = 1024 * 100 //预设值
+                    size = size - 4000 //默认簇
+                    let skip = 0.01 //变化幅度
+                    let maxSize = blob.size //1压缩
+
+
+                    //先预判图片压缩后的大小再微调
+                    let yu = size > maxSize ? 0.81 * 0.81 : 0.81
+                    let startQu = size / maxSize * yu
+                 
+                    if (startQu >= 1) startQu = 0.99
+                    if (startQu <= 0) startQu = 0.01
+                    setSizeFun(size, startQu.toFixed(2) - 0)
+
+                    function setSizeFun(setSize, qu) {
+                        _canvas.toBlob(function(blob22) {
+                            console.log('count:', count++);
+
+                            // let isLess =  blob22.size < setSize
+                            console.log(blob22, qu, '继续');
+                            img02.src = URL.createObjectURL(blob22)
+                            let bSize = blob22.size
+                            //符合条件区间
+                            if (bSize > setSize * 0.9 && bSize < setSize) {
+                                console.log(blob22, URL.createObjectURL(blob22), qu, '完成✅✅✅');
+                                return
+                            }
+                            //原图太小，
+                            if (qu >= 0.95 && bSize < setSize) {
+                                console.warn(blob22, qu, URL.createObjectURL(blob22), '最大输出✅');
+                                return
+                            }
+                            //压缩不到制定的大小
+                            if (qu < 0.0001 && bSize > setSize) {
+                                console.error(blob22, qu, URL.createObjectURL(blob22), '没有符合的🙅');
+                                return
+                            }
+                            //微调
+                            if (bSize < setSize) {
+                                qu = qu + skip
+                            } else {
+                                qu = qu - skip
+                            }
+                            setSizeFun(setSize, qu.toFixed(2) - 0)
+
+                        }, `image/jpeg`, qu)
+                    }
+                }, `image/jpeg`, 0.81)
+            }
+        }, false)
+    </script>
+</body>
+
+</html>

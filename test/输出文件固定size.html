@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <input id="files" type="file" multiple />
+    <h4 id="t1"></h4>
+    <img id="img01" src="" alt="">
+    <canvas id="can"></canvas>
+    <h4 id="t2"></h4>
+    <img id="img02" src="" alt="">
+    <script>
+        /*
+            直接设置输出质量+-0.1来预测输出合适的size太死板了
+            尝试这样的算法
+            01.判断现有图片已经被压缩的比例
+                size /（widhth * height）
+                172112 / (500 * 500) = 0.688448
+            02.需要压缩的比例
+                size /（widhth * height）
+                60000 / (500 * 500) = 0.24
+            图片尺寸
+        */
+        let input = document.getElementById("files")
+
+        let img01 = document.getElementById("img01")
+        let img02 = document.getElementById("img02")
+        input.addEventListener('change', function() {
+            console.log(this.files[0]);
+            let files = this.files
+            let img = new Image()
+
+            img.src = URL.createObjectURL(this.files[0])
+            img.onload = function() {
+                console.log(this);
+
+                // document.body.appendChild(this);
+                let _canvas = document.getElementById("can")
+                //处理缩放
+                let w = this.width
+                let h = this.height
+                // console.log(new Blob(img,'image/jpg'));
+
+
+                _canvas.setAttribute("width", w)
+                _canvas.setAttribute("height", h)
+                _canvas.getContext("2d").drawImage(this, 0, 0, w, h)
+                //转格式
+                console.log(_canvas);
+
+                // let base64_ok = _canvas.toDataURL(`image/${type}`, quality)
+                let s = 70000
+                let z1 = files[0].size / (this.width * this.height)
+                let z2 = s / (this.width * this.height)
+                let i = s / files[0].size
+                if (i > 1) i = 1
+                if (i < 0) i = 0.01
+
+                // let i = this.files[0].size / (this.width*this.height)
+                // setSizeFun(s, i)
+                setSizeFun(s, 1)
+
+                function setSizeFun(setSize, q) {
+                    //本来的图片就很小了
+                    if (files[0].size < setSize) {
+                        // let b = new Blob([files[0]], {
+                        //     type: files[0].type
+                        // })
+                        // _canvas.toBlob(function(blob) {
+                        //     console.log( blob,'原样输出');
+                        // }, `image/jpeg`, 1)
+
+                        // return
+                    }
+                    let qu = q
+                    let sizeAfter
+                    _canvas.toBlob(function(blob) {
+                        img02.src = URL.createObjectURL(blob)
+                        sizeAfter = blob.size
+                        console.log(blob, `setSize:`, setSize, `q:`, q);
+                        //合格
+                        if (setSize > sizeAfter && setSize * 0.9 < sizeAfter) {
+                            console.log(blob, '✅✅✅✅');
+
+                        } else {
+                            // if (setSize < sizeAfter) qu = qu -0.005
+                            // else qu = qu +0.005
+                            // let yuan = Math.abs((qu * setSize / sizeAfter)-qu)
+                            // let di = 0
+                            // if (yuan<0.002)  {
+                            //     di = 0.002
+                            // }
+                            qu =  qu * setSize / sizeAfter
+                            // if (qu < 0) {
+                            //     console.warn('没有合适的');
+                            //     return
+                            // }
+                            // if (qu > 1 && setSize > sizeAfter && setSize * 0.9 < sizeAfter) {
+                            //     console.log(blob, '最大输出质量✅✅✅✅');
+                            //     return
+                            // }
+                            if (qu > 1 || qu < 0) {
+                                if (setSize > sizeAfter) {
+                                    console.log(blob, '最大输出质量✅✅✅✅');
+                                } else {
+                                    console.warn('没有合适的');
+                                }
+                                return
+                            }
+                            console.log('继续');
+
+                            setSizeFun(setSize, qu)
+                        }
+                    }, `image/jpeg`, q)
+
+
+                }
+            }
+        }, false)
+    </script>
+</body>
+
+</html>
