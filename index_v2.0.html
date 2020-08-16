@@ -59,7 +59,7 @@
         var Module = {}
     </script>
     <script>
-        var version = 'v2.1.2'
+        var version = 'v2.1.1'
         if (localStorage.getItem('version') !== version) {
             localforage.clear()
             console.log('版本更新');
@@ -115,17 +115,10 @@
                     name: 'wasm-im.wasm'
                 },
                 {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/v2.1/app.js',
-                    name: 'wasm-im.js'
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/app02.js',
+                    name: 'app.js'
                 },
-                // {
-                //     url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/chunk.js',
-                //     name: 'chunk.js'
-                // },
-                // {
-                //     url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/app.js',
-                //     name: 'app.js'
-                // },
+               
             ]
             let ok = []
             get.map((m, index) => {
@@ -144,12 +137,8 @@
                                 console.log('完成。。。。', ok);
                                 Module.locateFile = _ => get.filter(m => m.name === 'wasm-im.wasm')[0].url
 
-                                let s1 = get.filter(m => m.name === 'wasm-im.js')[0]
-                                creatScript(s1.url, s1.name)
-                                // let s2 = get.filter(m => m.name === 'chunk.js')[0]
-                                // creatScript(s2.url, s2.name)
-                                // let s3 = get.filter(m => m.name === 'app.js')[0]
-                                // creatScript(s3.url, s3.name)
+                                let s2 = get.filter(m => m.name === 'app.js')[0]
+                                creatScript(s2.url, s2.name)
 
                                 loading.style.display = 'none'
                             } else {
@@ -162,4 +151,4 @@
         }
         GO()
     </script>
-</body> </html>
+   </body> </html>

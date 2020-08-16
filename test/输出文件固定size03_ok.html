@@ -25,24 +25,55 @@
             console.log(this.files[0]);
             let files = this.files
             let img = new Image()
-            let count = 0
+           
             img.src = URL.createObjectURL(this.files[0])
-            img.onload = function() {
+            img.onload = async function() {
                 console.log(this);
+                let jg = await funMaxSize({
+                    defWidth:this.width,
+                    defHeight:this.height,
+                    setWidth:400,
+                    setHeight:null,
+                    imageData:this,
+                    setSize:88
+                })
+                // let b= new Blob(this)
+                // URL.createObjectURL(b)
+                console.log('😊 结果：',jg,JSON.stringify(this),);
+                
+            }
+        }, false)
+
+
+
+
+        function funMaxSize({
+            defWidth,
+            defHeight,
+            setWidth,
+            setHeight,
+            imageData,
+            setSize=100 //kb
+        }) {
+            return new Promise((res, rej) => {
+                let arg = arguments[0]
+                let count = 0
                 let _canvas = document.getElementById("can")
                 //处理缩放
-                let w = this.width
-                let h = this.height
+                let w = arg.setWidth || arg.defWidth
+                let h = arg.setHeight || (arg.setWidth/arg.defWidth) * arg.defHeight
                 _canvas.setAttribute("width", w)
                 _canvas.setAttribute("height", h)
-                _canvas.getContext("2d").drawImage(this, 0, 0, w, h)
+                _canvas.getContext("2d").drawImage(arg.imageData, 0, 0, w, h)
                 //转格式
                 console.log(_canvas);
 
                 //输出100%质量
                 _canvas.toBlob(function(blob) {
                     console.log(blob, '完成0.81');
-                    let size = 1024 * 100 //预设值
+                    // let size = 1024 * 100 //预设值
+                    let size = arg.setSize * 1000 //预设值
+                    
                     size = size - 4000 //默认簇
                     let skip = 0.01 //变化幅度
                     let maxSize = blob.size //1压缩
@@ -51,7 +82,7 @@
                     //先预判图片压缩后的大小再微调
                     let yu = size > maxSize ? 0.81 * 0.81 : 0.81
                     let startQu = size / maxSize * yu
-                 
+
                     if (startQu >= 1) startQu = 0.99
                     if (startQu <= 0) startQu = 0.01
                     setSizeFun(size, startQu.toFixed(2) - 0)
@@ -67,20 +98,25 @@
                             //符合条件区间
                             if (bSize > setSize * 0.9 && bSize < setSize) {
                                 console.log(blob22, URL.createObjectURL(blob22), qu, '完成✅✅✅');
+                                res(URL.createObjectURL(blob22))
                                 return
                             }
                             //原图太小，
                             if (qu >= 0.95 && bSize < setSize) {
                                 console.warn(blob22, qu, URL.createObjectURL(blob22), '最大输出✅');
+                                res(URL.createObjectURL(blob22))
                                 return
                             }
                             //压缩不到制定的大小
                             if (qu < 0.0001 && bSize > setSize) {
                                 console.error(blob22, qu, URL.createObjectURL(blob22), '没有符合的🙅');
+                                rej(URL.createObjectURL(blob22))
+
                                 return
                             }
                             if (qu < 0.0001 && bSize < setSize) {
                                 console.warn(blob22, qu, URL.createObjectURL(blob22), '最小输出✅');
+                                res(URL.createObjectURL(blob22))
                                 return
                             }
                             //微调
@@ -93,9 +129,10 @@
 
                         }, `image/webp`, qu)
                     }
+
                 }, `image/webp`, 0.81)
-            }
-        }, false)
+            })
+        }
     </script>
 </body>
 

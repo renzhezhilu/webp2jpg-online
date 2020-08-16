@@ -80,6 +80,7 @@ canvas.toBlob(callback, type, encoderOptions);
 
 [wasm-im ](https://github.com/mk33mk333/wasm-im)
 
-[文章：WebAssembly实战-在浏览器中使用ImageMagick](https://cloud.tencent.com/developer/article/1554176)
+[文章：WebAssembly实战-在浏览器中使用ImageMagick](https://cloud.tencent.com/developer/article/1554176) 
+ _[(快照)](https://renzhezhilu.github.io/webp2jpg-online/doc/WebAssembly实战-在浏览器中使用ImageMagick.html)
 
 
