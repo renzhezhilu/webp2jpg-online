@@ -59,10 +59,15 @@
         var Module = {}
     </script>
     <script>
-        var version = 'v2.1.333'
+        var version = 'v2.1.4444'
         if (localStorage.getItem('version') !== version) {
             localforage.clear()
             console.log('版本更新');
+            setTimeout(() => {
+                GO()
+            }, 600);
+        } else {
+            GO()
         }
 
         function creatScript(src, name) {
@@ -115,7 +120,7 @@
                     name: 'wasm-im.wasm'
                 },
                 {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/v2.1/app.js',
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/v2.1/app2.js',
                     name: 'wasm-im.js'
                 },
                 // {
@@ -160,6 +165,5 @@
                     })
             })
         }
-        GO()
     </script>
 </body> </html>
