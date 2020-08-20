@@ -59,9 +59,10 @@
         var Module = {}
     </script>
     <script>
-        var version = 'v2.1.4444'
+        var version = 'v2.1.5555'
         if (localStorage.getItem('version') !== version) {
             localforage.clear()
+            localStorage.clear();
             console.log('版本更新');
             setTimeout(() => {
                 GO()
