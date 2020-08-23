@@ -10,25 +10,26 @@
 
 </center>
 
+ 🇺🇸[English](./doc/readme_en.md)    🇯🇵[日本語](./doc/readme_jp.md)
+## webp2jpg-online 介绍  
+![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/page_ui.png)
 
-## webp2jpg-online 介绍  [English Readme](./doc/readme_en.md)
+>我常常需要把webp图片转成jpg格式，很多在线转化提供的功能都需要上传文件，不爽。有非上传的但是ui很难用，谷歌一番后了解到html5自带接口的canvas.toBlob有转换图片格式的功能，索性就自己搞这个webp2jpg-online。
 
-我常常需要把webp图片转成jpg格式，很多在线转化提供的功能都需要上传文件，不爽。有非上传的但是ui很难用，谷歌一番后了解到html5自带接口的canvas.toBlob有转换图片格式的功能，索性就自己搞这个webp2jpg-online。
+在线图片格式转化器, 可将jpeg、jpg、png、gif、webp、svg、ico、bmp文件转化为jpeg、png、webp、webp动画、gif文件。无需上传文件，本地即可完成转换
 
-
-![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/format2.png)
-
-在线图片格式转化器, 可将jpeg、jpg、png、gif、webp、svg、ico、bmp文件转化为jpeg、png、webp、ico、gif文件。无需上传文件，本地即可完成转换
-
-Online picture format converter, can convert jpeg, jpg, png, gif, webp, svg, ico, bmp files into jpeg, png, webp, ico, gif files. No need to upload files, conversion can be done locally。
 
 ## 主要功能
+[📖 详细功能介绍->知乎](https://zhuanlan.zhihu.com/p/186716893)
+
     ✓ 无需上传，使用浏览器自身进行转换
     ✓ 批量转换输出webp、jpeg、png、base64、8位png(实验)、gif动图(实验)、webp动图(实验)
     ✓ 输出指定大小(webp、jpeg)(实验)
     ✓ 输出颜色数量(gif、png-8)
     ✓ 选项可自定增加或删除并持久化
-[📖 详细功能介绍->知乎](https://zhuanlan.zhihu.com/p/186716893)
+
+![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/format2.png)
+
 
 ## 在线地址
 https://renzhezhilu.gitee.io/webp2jpg-online/ 国内访问较快
