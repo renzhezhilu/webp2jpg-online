@@ -9,7 +9,7 @@
 </center>
 
 
-![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/page_ui_en.png)
+![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/page_ui_en.jpg)
 Introduction to webp2jpg-online
 I often need to convert webp images to jpg format, and many of the functions provided by online conversion require uploading files, which sucks. There are non-uploads but the UI is difficult to use, Google later learned that html5 comes with a built-in interface called canvas. toBlob has the ability to convert images, so just do your own webp2jpg-online.
 

@@ -11,7 +11,7 @@
 ## webp2jpg-onlineの概要
 
 
-![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/page_ui_jp.png)
+![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/page_ui_jp.jpg)
 
 >私はしばしばwebp画像をjpg形式に変換する必要があり、オンライン変換によって提供される機能の多くはファイルのアップロードを必要とします。これは面倒です。アップロードはありませんが、UIは使いづらく、Googleは後でhtml5に組み込みcanvasと呼ばれるインターフェースでtoBlobは画像を変換する機能を備えているので、独自のwebp2jpg-onlineを実行するだけです。
 
