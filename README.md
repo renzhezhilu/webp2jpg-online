@@ -24,11 +24,11 @@ Online picture format converter, can convert jpeg, jpg, png, gif, webp, svg, ico
 
 ## 主要功能
     ✓ 无需上传，使用浏览器自身进行转换
-    ✓ 批量转换输出webp、jpeg、png、8位png、gif动图、webp动图、base64
-    ✓ 输出指定大小(webp、jpeg)
+    ✓ 批量转换输出webp、jpeg、png、base64、8位png(实验)、gif动图(实验)、webp动图(实验)
+    ✓ 输出指定大小(webp、jpeg)(实验)
     ✓ 输出颜色数量(gif、png-8)
     ✓ 选项可自定增加或删除并持久化
-
+[📖 详细功能介绍->知乎](https://zhuanlan.zhihu.com/p/186716893)
 
 ## 在线地址
 https://renzhezhilu.gitee.io/webp2jpg-online/ 国内访问较快
