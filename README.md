@@ -10,6 +10,7 @@
 
 </center>
 
+[English Readme]('./doc/readme_en.md)
 ## webp2jpg-online 介绍
 
 我常常需要把webp图片转成jpg格式，很多在线转化提供的功能都需要上传文件，不爽。有非上传的但是ui很难用，谷歌一番后了解到html5自带接口的canvas.toBlob有转换图片格式的功能，索性就自己搞这个webp2jpg-online。
