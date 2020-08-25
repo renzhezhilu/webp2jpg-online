@@ -20,7 +20,8 @@
 オンライン画像形式コンバーター、jpeg、jpg、PNG、Gif、webp、svg、ICO、bmpファイルをJpeg、PNG、webp、ICO、gifファイルに変換します。ファイルをアップロードせずにローカルで変換できます
 オンライン画像形式コンバーターは、jpeg、jpg、png、gif、webp、svg、ico、bmpファイルをjpeg、png、webp、ico、gifファイルに変換できます。ファイルをアップロードする必要はなく、変換はローカルで実行できます。
 
-#＃ 主な機能
+## 主な機能
+
     アップロードなし、ブラウザ自体を使用した変換
     バッチ変換は、webp、jpeg、PNG、8ビットPNG、gifアニメーション、webpアニメーション、base64を出力します
     出力指定サイズ(WEBP、jpeg)
