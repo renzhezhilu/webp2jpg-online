@@ -45,6 +45,7 @@
     padding: 0;
     margin: 0;
     }</style>
+    <link href=js/app.d376f815.js rel=preload as=script>
 </head>
 
 <body>
@@ -57,19 +58,22 @@
     <div id=app></div>
     <script src=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/localforage.min.js> </script> <script>
         var Module = {}
+        var lastVer = 'v2.1.8'
     </script>
     <script>
-        var version = 'v2.1.7777'
-        if (localStorage.getItem('version') !== version) {
-            localforage.clear()
-            localStorage.clear();
-            console.log('版本更新');
-            setTimeout(() => {
+        !async function() {
+            let nowVer = await localforage.getItem('version')
+            if (nowVer !== lastVer) {
+                await localforage.clear()
+                console.log('版本更新');
+                setTimeout(() => {
+                    GO()
+                }, 100);
+            } else {
                 GO()
-            }, 600);
-        } else {
-            GO()
-        }
+            }
+        }()
+
 
         function creatScript(src, name) {
             let body = document.querySelector('body')
@@ -121,7 +125,7 @@
                     name: 'wasm-im.wasm'
                 },
                 {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/v2.1/app2.js',
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/app04.js',
                     name: 'wasm-im.js'
                 },
                 // {
@@ -136,7 +140,7 @@
             let ok = []
             get.map((m, index) => {
                 fileSaveLocal(m.url, m.name)
-                    .then(d => {
+                    .then(async (d) => {
                         ok.push(d)
                         get = get.map(m => {
                             ok.map(a => {
@@ -159,7 +163,7 @@
 
                                 loading.style.display = 'none'
                             } else {
-                                localStorage.setItem('version', version)
+                                await localforage.setItem('version', lastVer)
                                 location.reload()
                             }
                         }
@@ -167,4 +171,4 @@
             })
         }
     </script>
-</body> </html>
+ </body> </html>

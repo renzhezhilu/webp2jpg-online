@@ -3,7 +3,7 @@ node_modules
 /dist
 
 /psd
-
+超多图片处理测试包
 # local env files
 .env.local
 .env.*.local
