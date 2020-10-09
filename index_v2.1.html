@@ -45,6 +45,7 @@
     padding: 0;
     margin: 0;
     }</style>
+    <link href=js/app.d376f815.js rel=preload as=script>
 </head>
 
 <body>
@@ -57,8 +58,7 @@
     <div id=app></div>
     <script src=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/localforage.min.js> </script> <script>
         var Module = {}
-        var lastVer = 'v2.2.1'
-        var squooshWasm = {}
+        var lastVer = 'v2.1.8'
     </script>
     <script>
         !async function() {
@@ -82,7 +82,6 @@
             script.className = name
             body.appendChild(script)
         }
-
         async function fileSaveLocal(fileUrl, name) {
             try {
                 const isHave = await localforage.getItem(name);
@@ -123,24 +122,20 @@
 
             let get = [{
                     url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/wasm-im.wasm',
-                    name: 'webp2jpg_wasm-im.wasm'
+                    name: 'wasm-im.wasm'
                 },
                 {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/wasm-im.js',
-                    name: 'webp2jpg_wasm-im.js'
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/app04.js',
+                    name: 'wasm-im.js'
                 },
-                {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/squoosh/avif_enc.wasm',
-                    name: 'webp2jpg_avif_enc.wasm'
-                },
-                {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/squoosh/mozjpeg_enc.wasm',
-                    name: 'webp2jpg_mozjpeg_enc.wasm'
-                },
-                {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/webp2jpg_app20201009_.js',
-                    name: 'webp2jpg_app20201009.js'
-                },
+                // {
+                //     url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/chunk.js',
+                //     name: 'chunk.js'
+                // },
+                // {
+                //     url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/app.js',
+                //     name: 'app.js'
+                // },
             ]
             let ok = []
             get.map((m, index) => {
@@ -157,18 +152,14 @@
                         if (ok.length === get.length) {
                             if (ok.every(e => e.local)) {
                                 console.log('完成。。。。', ok);
-                                Module.locateFile = _ => get.filter(m => m.name === 'webp2jpg_wasm-im.wasm')[0].url
+                                Module.locateFile = _ => get.filter(m => m.name === 'wasm-im.wasm')[0].url
 
-                                let s1 = get.filter(m => m.name === 'webp2jpg_wasm-im.js')[0]
+                                let s1 = get.filter(m => m.name === 'wasm-im.js')[0]
                                 creatScript(s1.url, s1.name)
-                                let s2 = get.filter(m => m.name === 'webp2jpg_avif_enc.wasm')[0]
-                                squooshWasm.avif_enc = s2.url
-
-                                let s3 = get.filter(m => m.name === 'webp2jpg_mozjpeg_enc.wasm')[0]
-                                squooshWasm.mozjpeg_enc = s3.url
-
-                                let s4 = get.filter(m => m.name === 'webp2jpg_app20201009.js')[0]
-                                creatScript(s4.url, s4.name)
+                                // let s2 = get.filter(m => m.name === 'chunk.js')[0]
+                                // creatScript(s2.url, s2.name)
+                                // let s3 = get.filter(m => m.name === 'app.js')[0]
+                                // creatScript(s3.url, s3.name)
 
                                 loading.style.display = 'none'
                             } else {
@@ -180,4 +171,4 @@
             })
         }
     </script>
-</body> </html>
+ </body> </html>
