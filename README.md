@@ -49,6 +49,10 @@ https://renzhezhilu.github.io/webp2jpg-online/
 
 ## 更新日志
 
+### v2.2 -2020.10.09
+    新增格式-mozjpeg,压缩率更高/画质更好的jpg
+    新增格式-avif,逆天的压缩率
+    修复-对比模式
 ### v2.1 2020-08-17
     新增功能-输出指定大小
     新增功能-颜色数量选项(gif、png-8)
