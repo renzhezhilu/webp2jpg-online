@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang=en>
 
@@ -57,7 +58,7 @@
     <div id=app></div>
     <script src=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/localforage.min.js> </script> <script>
         var Module = {}
-        var lastVer = 'v2.2.1'
+        var lastVer = 'v2.2.2'
         var squooshWasm = {}
     </script>
     <script>
@@ -138,8 +139,8 @@
                     name: 'webp2jpg_mozjpeg_enc.wasm'
                 },
                 {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/webp2jpg_app20201009_.js',
-                    name: 'webp2jpg_app20201009.js'
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/webp2jpg_app20201225__.js',
+                    name: 'webp2jpg_app20201225.js'
                 },
             ]
             let ok = []
@@ -167,7 +168,7 @@
                                 let s3 = get.filter(m => m.name === 'webp2jpg_mozjpeg_enc.wasm')[0]
                                 squooshWasm.mozjpeg_enc = s3.url
 
-                                let s4 = get.filter(m => m.name === 'webp2jpg_app20201009.js')[0]
+                                let s4 = get.filter(m => m.name === 'webp2jpg_app20201225.js')[0]
                                 creatScript(s4.url, s4.name)
 
                                 loading.style.display = 'none'
