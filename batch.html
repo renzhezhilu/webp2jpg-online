@@ -14,7 +14,21 @@
     <noscript><strong>We're sorry but vue doesn't work properly without JavaScript enabled. Please enable it to
             continue.</strong></noscript>
     <div id=app></div>
-    <script src=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/batch/batch1225_04.js></script>
+    <script src=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/batch/batch1225_02.js></script>
+    <script>
+        // 换视频介绍图标
+        let icon = setInterval(() => {
+            if (document.querySelector('#logoDiv > ul > div')) {
+                document.querySelector('#logoDiv > ul > div').remove()
+                document.querySelector('#logoDiv > ul').insertAdjacentHTML('beforeend', `
+            <a href="https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/batch/video.mp4" target="_blank">
+                        <i class="iconfont icon-youtube-play"></i>
+                    </a>
+            `);
+                clearInterval(icon)
+            }
+        }, 300);
+    </script>
 </body>
 
 </html>
