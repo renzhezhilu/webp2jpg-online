@@ -11,8 +11,14 @@
 </center>
 
  🇺🇸[English](./doc/readme_en.md)    🇯🇵[日本語](./doc/readme_jp.md)
-## webp2jpg-online 介绍  
 
+
+`2021-04-07`
+
+- 我家的狗看我硬生生把这个项目写成💩山，叫我不要献丑了，连夜帮我做好了各个模块的demo:[browser-image-conversion-dome](https://github.com/renzhezhilu/browser-image-conversion-dome) 🤪
+
+
+## webp2jpg-online 介绍  
 ![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/page_ui.jpg)
 
 >我常常需要把webp图片转成jpg格式，很多在线转化提供的功能都需要上传文件，不爽。有非上传的但是ui很难用，谷歌一番后了解到html5自带接口的canvas.toBlob有转换图片格式的功能，索性就自己搞这个webp2jpg-online。
