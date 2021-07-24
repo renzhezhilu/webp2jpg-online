@@ -1,217 +1,357 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="">
 
 <head>
-    <meta charset=utf-8>
-    <title>webp2jpg-online-在线图片格式转化器(无需上传)-web2jpg-Online image format converter (no upload
-        required)-web2jpg-オンライン画像形式コンバーター（アップロード不要）-web2jpg-Convertidor de formato de imagen en línea (no requiere
-        carga)</title>
-    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
-    <meta name=viewport content="width=device-width,initial-scale=1">
-    <meta name=description
-        content="在线图片格式转化器,可将jpeg、jpg、png、gif、webp、svg、ico、bmp文件转化为jpeg、png、webp、ico文件。无需上传文件，本地即可完成转换。Online picture format converter, can convert jpeg, jpg, png, gif, webp, svg, ico, bmp files into jpeg, png, webp, ico files. No need to upload files, conversion can be done locally。オンライン画像形式コンバータは、jpeg、jpg、png、gif、webp、svg、ico、bmpファイルをjpeg、png、webp、icoファイルに変換できます。 ファイルをアップロードする必要はありません。変換はローカルで実行できます。Convertidor de formato de imagen en línea, puede convertir archivos jpeg, jpg, png, gif, webp, svg, ico, bmp en archivos jpeg, png, webp, ico. No es necesario cargar archivos, la conversión se puede hacer localmente">
-    <meta name=author content=renzhezhilu,https://github.com/renzhezhilu/webp2jpg-online>
-    <meta name=keywords
-        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
-    <meta name=robots
-        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
-    <meta name=google
-        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
-    <meta name=googlebot
-        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
-    <meta name=baidu
-        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
-    <meta name=verify
-        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
-    <meta name=apple-mobile-web-app-capable content=yes>
-    <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
-    <meta name=format-detection content="telephone=no, email=no">
-    <meta name=HandheldFriendly content=true>
-    <meta name=MobileOptimized content=320>
-    <meta property=og:site_name content="webp2jpg-online-Picture converter">
-    <meta property=og:title
-        content="webp2jpg-online-在线图片格式转化器(无需上传)-web2jpg-Online image format converter (no upload required)">
-    <meta property=og:description
-        content="在线图片格式转化器,可将jpeg、jpg、png、gif、webp、svg、ico、bmp文件转化为jpeg、png、webp、ico文件。无需上传文件，本地即可完成转换。Online picture format converter, can convert jpeg, jpg, png, gif, webp, svg, ico, bmp files into jpeg, png, webp, ico files. No need to upload files, conversion can be done locally。オンライン画像形式コンバータは、jpeg、jpg、png、gif、webp、svg、ico、bmpファイルをjpeg、png、webp、icoファイルに変換できます。 ファイルをアップロードする必要はありません。変換はローカルで実行できます。Convertidor de formato de imagen en línea, puede convertir archivos jpeg, jpg, png, gif, webp, svg, ico, bmp en archivos jpeg, png, webp, ico. No es necesario cargar archivos, la conversión se puede hacer localmente">
-    <meta property=og:image content=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/og_image.png>
-    <meta property=og:url content=https://renzhezhilu.github.io/webp2jpg-online />
-    <meta property=og:type content=article>
-    <link rel=apple-touch-icon href=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/apple-touch-iphone.png>
-    <link rel="shortcut icon" href=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/favicon.ico>
-    <style>
-        #page_loading {
-            position: fixed;
-            z-index: 10000;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 26px;
-            line-height: 26px;
-            font-weight: 100;
-            font-family: Avenir, "微软雅黑", Helvetica, Arial, sans-serif;
-        }
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="icon" href="favicon.png">
+	<title>Multi-function picture batch processing v3.0 No need to upload files -多功能图片批量处理v3.0 无需上传文件-Traitement par
+		lots d'images multifonctions Pas besoin de télécharger des fichiers - Procesamiento por lotes de imágenes
+		multifunción No es necesario cargar archivos-多機能画像バッチ処理v3.0 ファイルをアップロードする必要はありません</title>
+	<script>
+		var idbKeyval = function (t) {
+			"use strict";
 
-        #page_loading,
-        #page_loading * {
-            list-style: none;
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-    </style>
+			function e(t) {
+				return new Promise(((e, n) => {
+					t.oncomplete = t.onsuccess = () => e(t.result), t.onabort = t.onerror = () => n(t.error)
+				}))
+			}
+
+			function n(t, n) {
+				const r = indexedDB.open(t);
+				r.onupgradeneeded = () => r.result.createObjectStore(n);
+				const o = e(r);
+				return (t, e) => o.then((r => e(r.transaction(n, t).objectStore(n))))
+			}
+			let r;
+
+			function o() {
+				return r || (r = n("keyval-store", "keyval")), r
+			}
+
+			function u(t, n) {
+				return t("readonly", (t => (t.openCursor().onsuccess = function () {
+					this.result && (n(this.result), this.result.continue())
+				}, e(t.transaction))))
+			}
+			return t.clear = function (t = o()) {
+				return t("readwrite", (t => (t.clear(), e(t.transaction))))
+			}, t.createStore = n, t.del = function (t, n = o()) {
+				return n("readwrite", (n => (n.delete(t), e(n.transaction))))
+			}, t.entries = function (t = o()) {
+				const e = [];
+				return u(t, (t => e.push([t.key, t.value]))).then((() => e))
+			}, t.get = function (t, n = o()) {
+				return n("readonly", (n => e(n.get(t))))
+			}, t.getMany = function (t, n = o()) {
+				return n("readonly", (n => Promise.all(t.map((t => e(n.get(t)))))))
+			}, t.keys = function (t = o()) {
+				const e = [];
+				return u(t, (t => e.push(t.key))).then((() => e))
+			}, t.promisifyRequest = e, t.set = function (t, n, r = o()) {
+				return r("readwrite", (r => (r.put(n, t), e(r.transaction))))
+			}, t.setMany = function (t, n = o()) {
+				return n("readwrite", (n => (t.forEach((t => n.put(t[1], t[0]))), e(n.transaction))))
+			}, t.update = function (t, n, r = o()) {
+				return r("readwrite", (r => new Promise(((o, u) => {
+					r.get(t).onsuccess = function () {
+						try {
+							r.put(n(this.result), t), o(e(r.transaction))
+						} catch (t) {
+							u(t)
+						}
+					}
+				}))))
+			}, t.values = function (t = o()) {
+				const e = [];
+				return u(t, (t => e.push(t.value))).then((() => e))
+			}, t
+		}({});
+	</script>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			background-color: #202223;
+		}
+
+		.loadPage {
+			position: fixed;
+			z-index: 9999;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			background-color: #202223;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			color: #2eb5de
+		}
+
+		.loadPage .p {
+			width: 100%;
+			max-width: 500px;
+			height: 10px;
+			background-color: #2d2f31;
+			overflow: hidden;
+			border-radius: 6px;
+			margin: 30px 0 10px 0
+		}
+
+		.loadPage .p div {
+			height: 100%;
+			width: 30%;
+			background-color: #37d1c8;
+			background-image: linear-gradient(-34deg, #2eb5de 0%, #37d1c8 100%);
+		}
+
+		.loadPage h2 {
+			font-size: 70px;
+			line-height: 90px;
+		}
+
+		.loadPage h3 {
+			color: #7b7e80;
+			font-size: 20px;
+		}
+	</style>
 </head>
 
 <body>
+	<div class="loadPage">
+		<h2>1%</h2>
+		<div class="p">
+			<div></div>
+		</div>
+		<h3>LOADING...</h3><a target="_blank" href="./v2.html">v2.2 -></a>
+	</div>
+	<noscript><strong>We're sorry but vue_2 doesn't work properly without JavaScript enabled. Please enable it
+			to continue.</strong></noscript>
+	<div id="app"></div>
 
-    <style>
-        #banner1 {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            z-index: 99999;
-        }
-    </style>
-    <a id="banner1" href="./batch.html" target="_blank"><img
-            src="https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/batch/banner.png" alt="">
-    </a>
-    <div id=page_loading>
-        <div>
-            <div><span id=page_loading_num style="font-size:80px;line-height: 80px;">0</span> %</div>
-            <p>loading...</p>
-        </div>
-    </div><noscript><strong>We're sorry but v.2.0.0 doesn't work properly without JavaScript enabled. Please enable it
-            to continue.</strong></noscript>
-    <div id=app></div>
-    <script src=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/localforage.min.js> </script>
-    <script>
-        var Module = {}
-        var lastVer = 'v2.2.51'
-        var squooshWasm = {}
-    </script>
-    <script>
-        !async function () {
-            let nowVer = await localforage.getItem('version')
-            if (nowVer !== lastVer) {
-                await localforage.clear()
-                console.log('版本更新');
-                setTimeout(() => {
-                    GO()
-                }, 100);
-            } else {
-                GO()
-            }
-        }()
-
-
-        function creatScript(src, name) {
-            let body = document.querySelector('body')
-            let script = document.createElement('script')
-            script.src = src
-            script.className = name
-            body.appendChild(script)
-        }
-
-        async function fileSaveLocal(fileUrl, name) {
-            try {
-                const isHave = await localforage.getItem(name);
-                if (isHave) {
-                    console.log('本地已存在');
-                    let val = await localforage.getItem(name)
-                    console.log(val);
-                    return {
-                        url: URL.createObjectURL(val),
-                        local: true,
-                        name: name
-                    }
-                } else {
-                    console.log('本地不存在，重新请求');
-                    let blob = await fetch(fileUrl)
-                        .then(d => d.blob())
-
-                    await localforage.setItem(name, blob)
-                    let val = await localforage.getItem(name)
-                    console.log(val);
-                    return {
-                        url: URL.createObjectURL(val),
-                        local: false,
-                        name: name
-                    }
-                }
-            } catch (err) {
-                console.log(err);
-            }
-        }
-
-
-
-        async function GO() {
-            let loading = document.getElementById('page_loading')
-            let num = document.getElementById('page_loading_num')
-            let wasmjs_dom = document.getElementById('wasmjs')
-
-            let get = [{
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/wasm-im.wasm',
-                    name: 'webp2jpg_wasm-im.wasm'
-                },
-                {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/wasm-im.js',
-                    name: 'webp2jpg_wasm-im.js'
-                },
-                {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/squoosh/avif_enc.wasm',
-                    name: 'webp2jpg_avif_enc.wasm'
-                },
-                {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/squoosh/mozjpeg_enc.wasm',
-                    name: 'webp2jpg_mozjpeg_enc.wasm'
-                },
-                {
-                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/webp2jpg_app20201225_____.js',
-                    name: 'webp2jpg_app20201225.js'
-                },
-            ]
-            let ok = []
-            get.map((m, index) => {
-                fileSaveLocal(m.url, m.name)
-                    .then(async (d) => {
-                        ok.push(d)
-                        get = get.map(m => {
-                            ok.map(a => {
-                                if (a.name === m.name) m.url = a.url
-                            })
-                            return m
-                        })
-                        num.textContent = ((index / get.length * 100).toFixed(0) - 0)
-                        if (ok.length === get.length) {
-                            if (ok.every(e => e.local)) {
-                                console.log('完成。。。。', ok);
-                                Module.locateFile = _ => get.filter(m => m.name ===
-                                    'webp2jpg_wasm-im.wasm')[0].url
-
-                                let s1 = get.filter(m => m.name === 'webp2jpg_wasm-im.js')[0]
-                                creatScript(s1.url, s1.name)
-                                let s2 = get.filter(m => m.name === 'webp2jpg_avif_enc.wasm')[0]
-                                squooshWasm.avif_enc = s2.url
-
-                                let s3 = get.filter(m => m.name === 'webp2jpg_mozjpeg_enc.wasm')[0]
-                                squooshWasm.mozjpeg_enc = s3.url
-
-                                let s4 = get.filter(m => m.name === 'webp2jpg_app20201225.js')[0]
-                                creatScript(s4.url, s4.name)
-
-                                loading.style.display = 'none'
-                            } else {
-                                await localforage.setItem('version', lastVer)
-                                location.reload()
-                            }
-                        }
-                    })
-            })
-        }
-    </script>
 </body>
 
 </html>
+<script>
+	window.CACHE_VERSION = '3.0.61'
+	window.CACHE_LIST = {}
+	window.CACHE_FN = _ => {
+		let cdnList = [{
+				name: 'app.js',
+				url: ['js/app.8eb49d22.222.js']
+			}, {
+				name: 'avif_enc_worker_all_in.js',
+				url: ['js/avif_enc_worker_all_in.js']
+			}, {
+				name: 'imagequant_worker_all_in.js',
+				url: ['js/imagequant_worker_all_in.js']
+			}, {
+				name: 'squoosh_oxipng_worker_all_in.js',
+				url: ['js/squoosh_oxipng_worker_all_in.js']
+			}, {
+				name: 'mozjpeg_enc_worker_all_in.js',
+				url: ['js/mozjpeg_enc_worker_all_in.js']
+			}, {
+				name: 'svgo_worker_all_in.js',
+				url: ['js/svgo_worker_all_in.js']
+			}, {
+				name: 'wasm-im_worker_all_in.js',
+				url: ['js/wasm-im_worker_all_in.js']
+			}, {
+				name: 'logo.png',
+				url: ['images/logo.png']
+			}, {
+				name: '1920x1080.jpg',
+				url: ['images/1920x1080.jpg']
+			}, {
+				name: '750x1350.jpg',
+				url: ['images/750x1350.jpg']
+			}, {
+				name: '500x500.jpg',
+				url: ['images/500x500.jpg']
+			},
+			// 
+			{
+				name: 'magickApi.js',
+				url: ['js/magick/magickApi.js']
+			},
+			{
+				name: 'magick.js',
+				url: ['js/magick/magick.js']
+			}
+		]
+		// let cdnList = [{
+		// 		name: 'avif_enc_worker_all_in.js',
+		// 		url: ['./cache/js/avif_enc_worker_all_in.js']
+		// 	}, {
+		// 		name: 'imagequant_worker_all_in.js',
+		// 		url: ['./cache/js/imagequant_worker_all_in.js']
+		// 	}, {
+		// 		name: 'squoosh_oxipng_worker_all_in.js',
+		// 		url: ['./cache/js/squoosh_oxipng_worker_all_in.js']
+		// 	}, {
+		// 		name: 'mozjpeg_enc_worker_all_in.js',
+		// 		url: ['./cache/js/mozjpeg_enc_worker_all_in.js']
+		// 	}, {
+		// 		name: 'svgo_worker_all_in.js',
+		// 		url: ['./cache/js/svgo_worker_all_in.js']
+		// 	}, {
+		// 		name: 'wasm-im_worker_all_in.js',
+		// 		url: ['./cache/js/wasm-im_worker_all_in.js']
+		// 	}, {
+		// 		name: 'logo.png',
+		// 		url: ['./cache/images/logo.png']
+		// 	}, {
+		// 		name: '1920x1080.jpg',
+		// 		url: ['./cache/images/1920x1080.jpg']
+		// 	}, {
+		// 		name: '750x1350.jpg',
+		// 		url: ['./cache/images/750x1350.jpg']
+		// 	}, {
+		// 		name: '500x500.jpg',
+		// 		url: ['./cache/images/500x500.jpg']
+		// 	},
+		// 	// 
+		// 	{
+		// 		name: 'magickApi.js',
+		// 		url: ['./cache/js/magick/magickApi.js']
+		// 	},
+		// 	{
+		// 		name: 'magick.js',
+		// 		url: ['./cache/js/magick/magick.js']
+		// 	}
+		// ]
+
+		cdnList = cdnList.map(m => {
+			m.url = ['https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/v3.0/' + m.url[0]]
+			return m
+		})
+
+
+		function creatScript(src, name) {
+			let body = document.querySelector('body')
+			let script = document.createElement('script')
+			script.src = src
+			script.className = name
+			body.appendChild(script)
+		}
+
+
+		start(0)
+		async function start(num) {
+			if (num > 2) return
+			let ver = await idbKeyval.get('CACHE_VERSION')
+			let blobList = await idbKeyval.get('CACHE_LIST')
+			// 重新请求
+			if (!ver || ver !== window.CACHE_VERSION || !blobList) {
+				// await idbKeyval.clear()
+				let retList = await getCdnList(cdnList)
+				await idbKeyval.set('CACHE_LIST', retList)
+			}
+			blobList = await idbKeyval.get('CACHE_LIST')
+			let errorList = blobList.some(f => !f.blob || !f.name)
+			if (errorList) {
+				alert('错误')
+				await idbKeyval.del('CACHE_VERSION')
+				start(num + 1)
+				return
+			}
+			blobList.map(m => {
+				window.CACHE_LIST[m.name] = URL.createObjectURL(m.blob)
+			})
+			await idbKeyval.set('CACHE_VERSION', window.CACHE_VERSION)
+			creatScript(window.CACHE_LIST['app.js'], 'appJs')
+			// console.log('window.CACHE_LIST', window.CACHE_LIST);
+			// console.log('blobList', blobList);
+			// console.log(window.CACHE_LIST['magickApi.js']);
+			import(window.CACHE_LIST['magickApi.js'])
+				.then(module => {
+					Window.Magick = module
+					console.log(Window.Magick);
+				})
+				.catch(err => {
+					console.log(err);
+				});
+			console.log('加载完成✅', );
+
+
+		}
+		async function getCdnList(cdnList) {
+			let time = new Date().getTime()
+			let retList = []
+			document.querySelector('.loadPage').style.display = 'flex'
+			for (let index = 0; index < cdnList.length; index++) {
+				const cdn = cdnList[index];
+				// end
+				// await new Promise(_ => setTimeout(() => _(), 300))
+				let file = await fetchFile(cdn.url)
+				if (!file) {
+					file = {
+						name: null,
+						blob: null
+					}
+					console.error('GET ERRPR!', file);
+				}
+				retList.push({
+					name: cdn.name,
+					blob: file.blob
+				})
+				// console.log(cdn.name);
+				// if(cdn.name==='app.js'){
+				// 	creatScript(window.CACHE_LIST['app.js'],'appJs')
+				// }
+				console.log('+', index + 1)
+				let pNum = ((index + 1) / cdnList.length * 100).toFixed(0) + '%'
+				document.querySelector('.loadPage h2').textContent = pNum
+				document.querySelector('.loadPage .p div').style.width = pNum
+			}
+			// await idbKeyval.set('cdnList', retList)
+			time = new Date().getTime() - time
+			time = (time / 1000).toFixed(2)
+			console.log('缓存完成！', time);
+			document.querySelector('.loadPage').style.display = 'none'
+
+			return retList
+
+		}
+		async function fetchFile(url = []) {
+			return new Promise(async (res, rej) => {
+				let blob;
+				for (let index = 0; index < url.length; index++) {
+					const element = url[index];
+					blob = await fetch(element)
+						.then(d => {
+							if (d.status === 200) return d.blob()
+							else return null
+						})
+						.catch(e => {
+							console.log(e);
+							return null
+						})
+					if (blob) {
+						res({
+							blob,
+							index,
+							element
+						})
+						break
+					} else {
+						console.error('ERROR URL:', element);
+					}
+				}
+				if (!blob) res(null)
+			})
+
+
+
+		}
+	}
+	window.CACHE_FN()
+</script>

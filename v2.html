@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=utf-8>
+    <title>webp2jpg-online-在线图片格式转化器(无需上传)-web2jpg-Online image format converter (no upload
+        required)-web2jpg-オンライン画像形式コンバーター（アップロード不要）-web2jpg-Convertidor de formato de imagen en línea (no requiere
+        carga)</title>
+    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta name=description
+        content="在线图片格式转化器,可将jpeg、jpg、png、gif、webp、svg、ico、bmp文件转化为jpeg、png、webp、ico文件。无需上传文件，本地即可完成转换。Online picture format converter, can convert jpeg, jpg, png, gif, webp, svg, ico, bmp files into jpeg, png, webp, ico files. No need to upload files, conversion can be done locally。オンライン画像形式コンバータは、jpeg、jpg、png、gif、webp、svg、ico、bmpファイルをjpeg、png、webp、icoファイルに変換できます。 ファイルをアップロードする必要はありません。変換はローカルで実行できます。Convertidor de formato de imagen en línea, puede convertir archivos jpeg, jpg, png, gif, webp, svg, ico, bmp en archivos jpeg, png, webp, ico. No es necesario cargar archivos, la conversión se puede hacer localmente">
+    <meta name=author content=renzhezhilu,https://github.com/renzhezhilu/webp2jpg-online>
+    <meta name=keywords
+        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
+    <meta name=robots
+        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
+    <meta name=google
+        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
+    <meta name=googlebot
+        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
+    <meta name=baidu
+        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
+    <meta name=verify
+        content="webp2jpg,png2jpg,gif2jpg,svg2jpg,ico2jpg,bmp2jpg,jpg2webp,jpg2webp,png2webp,gif2webp,svg2webp,ico2webp,bmp2webp,jpg2png,webp2png,gif2png,svg2png,ico2png,bmp2png,webp to jpg,png to jpg,gif to jpg,svg to jpg,ico to jpg,bmp to jpg,jpg to webp,jpg to webp,png to webp,gif to webp,svg to webp,ico to webp,bmp to webp,jpg to png,webp to png,gif to png,svg to png,ico to png,bmp to png,webp 转 jpg,png 转 jpg,gif 转 jpg,svg 转 jpg,ico 转 jpg,bmp 转 jpg,jpg 转 webp,jpg 转 webp,png 转 webp,gif 转 webp,svg 转 webp,ico 转 webp,bmp 转 webp,jpg 转 png,webp 转 png,gif 转 png,svg 转 png,ico 转 png,bmp 转 png,html图片转换,图片本地转换,图片格式转换,,转化至jpg、webp、png、ico,Convert to JPG,Convert to webp,Convert to png,Convert to ico">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+    <meta name=format-detection content="telephone=no, email=no">
+    <meta name=HandheldFriendly content=true>
+    <meta name=MobileOptimized content=320>
+    <meta property=og:site_name content="webp2jpg-online-Picture converter">
+    <meta property=og:title
+        content="webp2jpg-online-在线图片格式转化器(无需上传)-web2jpg-Online image format converter (no upload required)">
+    <meta property=og:description
+        content="在线图片格式转化器,可将jpeg、jpg、png、gif、webp、svg、ico、bmp文件转化为jpeg、png、webp、ico文件。无需上传文件，本地即可完成转换。Online picture format converter, can convert jpeg, jpg, png, gif, webp, svg, ico, bmp files into jpeg, png, webp, ico files. No need to upload files, conversion can be done locally。オンライン画像形式コンバータは、jpeg、jpg、png、gif、webp、svg、ico、bmpファイルをjpeg、png、webp、icoファイルに変換できます。 ファイルをアップロードする必要はありません。変換はローカルで実行できます。Convertidor de formato de imagen en línea, puede convertir archivos jpeg, jpg, png, gif, webp, svg, ico, bmp en archivos jpeg, png, webp, ico. No es necesario cargar archivos, la conversión se puede hacer localmente">
+    <meta property=og:image content=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/og_image.png>
+    <meta property=og:url content=https://renzhezhilu.github.io/webp2jpg-online />
+    <meta property=og:type content=article>
+    <link rel=apple-touch-icon href=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/apple-touch-iphone.png>
+    <link rel="shortcut icon" href=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/favicon.ico>
+    <style>
+        #page_loading {
+            position: fixed;
+            z-index: 10000;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+            line-height: 26px;
+            font-weight: 100;
+            font-family: Avenir, "微软雅黑", Helvetica, Arial, sans-serif;
+        }
+
+        #page_loading,
+        #page_loading * {
+            list-style: none;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <style>
+        #banner1 {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 99999;
+        }
+    </style>
+    <a id="banner1" href="./batch.html" target="_blank"><img
+            src="https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/batch/banner.png" alt="">
+    </a>
+    <div id=page_loading>
+        <div>
+            <div><span id=page_loading_num style="font-size:80px;line-height: 80px;">0</span> %</div>
+            <p>loading...</p>
+        </div>
+    </div><noscript><strong>We're sorry but v.2.0.0 doesn't work properly without JavaScript enabled. Please enable it
+            to continue.</strong></noscript>
+    <div id=app></div>
+    <script src=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/localforage.min.js> </script>
+    <script>
+        var Module = {}
+        var lastVer = 'v2.2.61'
+        var squooshWasm = {}
+    </script>
+    <script>
+        !async function () {
+            let nowVer = await localforage.getItem('version')
+            if (nowVer !== lastVer) {
+                await localforage.clear()
+                console.log('版本更新');
+                setTimeout(() => {
+                    GO()
+                }, 100);
+            } else {
+                GO()
+            }
+        }()
+
+
+        function creatScript(src, name) {
+            let body = document.querySelector('body')
+            let script = document.createElement('script')
+            script.src = src
+            script.className = name
+            body.appendChild(script)
+        }
+
+        async function fileSaveLocal(fileUrl, name) {
+            try {
+                const isHave = await localforage.getItem(name);
+                if (isHave) {
+                    console.log('本地已存在');
+                    let val = await localforage.getItem(name)
+                    console.log(val);
+                    return {
+                        url: URL.createObjectURL(val),
+                        local: true,
+                        name: name
+                    }
+                } else {
+                    console.log('本地不存在，重新请求');
+                    let blob = await fetch(fileUrl)
+                        .then(d => d.blob())
+
+                    await localforage.setItem(name, blob)
+                    let val = await localforage.getItem(name)
+                    console.log(val);
+                    return {
+                        url: URL.createObjectURL(val),
+                        local: false,
+                        name: name
+                    }
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+
+
+        async function GO() {
+            let loading = document.getElementById('page_loading')
+            let num = document.getElementById('page_loading_num')
+            let wasmjs_dom = document.getElementById('wasmjs')
+
+            let get = [{
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/wasm-im.wasm',
+                    name: 'webp2jpg_wasm-im.wasm'
+                },
+                {
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/wasm-im.js',
+                    name: 'webp2jpg_wasm-im.js'
+                },
+                {
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/squoosh/avif_enc.wasm',
+                    name: 'webp2jpg_avif_enc.wasm'
+                },
+                {
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/squoosh/mozjpeg_enc.wasm',
+                    name: 'webp2jpg_mozjpeg_enc.wasm'
+                },
+                {
+                    url: 'https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/dist_js/webp2jpg_app20201225_____.js',
+                    name: 'webp2jpg_app20201225.js'
+                },
+            ]
+            let ok = []
+            get.map((m, index) => {
+                fileSaveLocal(m.url, m.name)
+                    .then(async (d) => {
+                        ok.push(d)
+                        get = get.map(m => {
+                            ok.map(a => {
+                                if (a.name === m.name) m.url = a.url
+                            })
+                            return m
+                        })
+                        num.textContent = ((index / get.length * 100).toFixed(0) - 0)
+                        if (ok.length === get.length) {
+                            if (ok.every(e => e.local)) {
+                                console.log('完成。。。。', ok);
+                                Module.locateFile = _ => get.filter(m => m.name ===
+                                    'webp2jpg_wasm-im.wasm')[0].url
+
+                                let s1 = get.filter(m => m.name === 'webp2jpg_wasm-im.js')[0]
+                                creatScript(s1.url, s1.name)
+                                let s2 = get.filter(m => m.name === 'webp2jpg_avif_enc.wasm')[0]
+                                squooshWasm.avif_enc = s2.url
+
+                                let s3 = get.filter(m => m.name === 'webp2jpg_mozjpeg_enc.wasm')[0]
+                                squooshWasm.mozjpeg_enc = s3.url
+
+                                let s4 = get.filter(m => m.name === 'webp2jpg_app20201225.js')[0]
+                                creatScript(s4.url, s4.name)
+
+                                loading.style.display = 'none'
+                            } else {
+                                await localforage.setItem('version', lastVer)
+                                location.reload()
+                            }
+                        }
+                    })
+            })
+        }
+    </script>
+</body>
+
+</html>
