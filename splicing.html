@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+	<meta name=viewport content="width=device-width,initial-scale=1">
+	<link rel="icon" href="https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/splicing/favicon.png">
+	<title>视频字幕拼接工具</title>
+		<meta name=description
+        content="视频字幕拼接工具,和一些常规的图片拼接功能">
+    <meta name=author content=renzhezhilu,https://github.com/renzhezhilu/webp2jpg-online>
+    <meta name=keywords
+		content="字幕拼接,长图拼接,图片多列拼接,录屏拼接">
+		<meta name=apple-mobile-web-app-capable content=yes>
+		<meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+		<meta name=format-detection content="telephone=no, email=no">
+		<meta name=HandheldFriendly content=true>
+		<meta name=MobileOptimized content=320>
+		<meta property=og:site_name content="视频字幕拼接工具">
+		<meta property=og:title
+			content="视频字幕拼接工具,">
+		<meta property=og:description
+			content="通过录屏快速完成视频字幕拼接">
+		<meta property=og:image content=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/splicing/ui.jpg>
+		<meta property=og:url content=https://renzhezhilu.github.io/webp2jpg-online/splicing.html />
+		<meta property=og:type content=article>
+		<link rel=apple-touch-icon href=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/splicing/favicon.png>
+		<link rel="shortcut icon" href=https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/splicing/favicon.png>
+	<script>
+		let href = window.location.href;
+            if (!href.includes("#/splicing")) {
+                window.location.href =
+                    window.location.origin +
+                    window.location.pathname +
+                    "#/splicing";
+            }
+		
+		var idbKeyval = function (t) {
+			"use strict";
+
+			function e(t) {
+				return new Promise(((e, n) => {
+					t.oncomplete = t.onsuccess = () => e(t.result), t.onabort = t.onerror = () => n(t.error)
+				}))
+			}
+
+			function n(t, n) {
+				const r = indexedDB.open(t);
+				r.onupgradeneeded = () => r.result.createObjectStore(n);
+				const o = e(r);
+				return (t, e) => o.then((r => e(r.transaction(n, t).objectStore(n))))
+			}
+			let r;
+
+			function o() {
+				return r || (r = n("keyval-store", "keyval")), r
+			}
+
+			function u(t, n) {
+				return t("readonly", (t => (t.openCursor().onsuccess = function () {
+					this.result && (n(this.result), this.result.continue())
+				}, e(t.transaction))))
+			}
+			return t.clear = function (t = o()) {
+				return t("readwrite", (t => (t.clear(), e(t.transaction))))
+			}, t.createStore = n, t.del = function (t, n = o()) {
+				return n("readwrite", (n => (n.delete(t), e(n.transaction))))
+			}, t.entries = function (t = o()) {
+				const e = [];
+				return u(t, (t => e.push([t.key, t.value]))).then((() => e))
+			}, t.get = function (t, n = o()) {
+				return n("readonly", (n => e(n.get(t))))
+			}, t.getMany = function (t, n = o()) {
+				return n("readonly", (n => Promise.all(t.map((t => e(n.get(t)))))))
+			}, t.keys = function (t = o()) {
+				const e = [];
+				return u(t, (t => e.push(t.key))).then((() => e))
+			}, t.promisifyRequest = e, t.set = function (t, n, r = o()) {
+				return r("readwrite", (r => (r.put(n, t), e(r.transaction))))
+			}, t.setMany = function (t, n = o()) {
+				return n("readwrite", (n => (t.forEach((t => n.put(t[1], t[0]))), e(n.transaction))))
+			}, t.update = function (t, n, r = o()) {
+				return r("readwrite", (r => new Promise(((o, u) => {
+					r.get(t).onsuccess = function () {
+						try {
+							r.put(n(this.result), t), o(e(r.transaction))
+						} catch (t) {
+							u(t)
+						}
+					}
+				}))))
+			}, t.values = function (t = o()) {
+				const e = [];
+				return u(t, (t => e.push(t.value))).then((() => e))
+			}, t
+		}({});
+	</script>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			background-color: #202223;
+		}
+
+		.loadPage {
+			position: fixed;
+			z-index: 9999;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			background-color: #202223;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			color: #2eb5de
+		}
+
+		.loadPage .p {
+			width: 100%;
+			max-width: 500px;
+			height: 10px;
+			background-color: #2d2f31;
+			overflow: hidden;
+			border-radius: 6px;
+			margin: 30px 0 10px 0
+		}
+
+		.loadPage .p div {
+			height: 100%;
+			width: 30%;
+			background-color: #37d1c8;
+			background-image: linear-gradient(-34deg, #2eb5de 0%, #37d1c8 100%);
+		}
+
+		.loadPage h2 {
+			font-size: 70px;
+			line-height: 90px;
+		}
+
+		.loadPage h3 {
+			color: #7b7e80;
+			font-size: 20px;
+		}
+		.app_html{
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="loadPage">
+		<h2>1%</h2>
+		<div class="p">
+			<div></div>
+		</div>
+		<h3>LOADING...</h3><a target="_blank" href="./v2.html">v2.2 -></a>
+	</div>
+	<noscript><strong>We're sorry but vue_2 doesn't work properly without JavaScript enabled. Please enable it
+			to continue.</strong></noscript>
+	<div id="app"></div>
+
+	<div class="app_html" >
+		    <div class=" image-splicing "> <header> <div class="l1"> <div class="layout_max_width"> <div class="logo"> <h2>Images Tool v3.0</h2> <p>无需上传文件</p> <div class="hr_y"></div> <div class="minPopup"> <div class="mcon"> <div class="butIcon on" style="width: auto; padding: 0px 20px; text-align: center; background-color: var(--border2);"> 视频字幕拼接工具 <i class="iconfont icon-chevron-down" style="font-size: 12px;"></i></div> </div> <!----> </div> <div class="hr_x"></div> <div class="hr_x"></div> </div> <nav class="other"> <div title="" class="item red_text"><i class="iconfont icon-coffee"></i><span style="font-size: 14px;"> 打赏 </span></div> <div class="hr_y"></div> <div title="" class="item "><a target="_blank" href="https://support.qq.com/products/344702" style="color: var(--text);"><i class="iconfont icon-message-processing"></i><span style="font-size: 14px;"> Bug </span></a></div> <div class="hr_y"></div> <div title="" class="moreTool  item"> <div class="minPopup"> <div class="mcon"> <div class="butIcon" style="width: auto; padding: 0px 10px; text-align: center;"><i class="iconfont icon-web"></i></div> </div> <!----> </div> </div> <div class="hr_y"></div> <div title="" class="moreTool  item"> <div class="minPopup"> <div class="mcon"> <div class="butIcon" style="width: auto; padding: 0px 10px; text-align: center;"><i class="iconfont icon-dots-vertical" style="font-size: 18px;"></i></div> </div> <!----> </div> </div> <!----> </nav> <!----> </div> </div> </header><input accept=".jpeg,.jpg,.png,.gif,.webp,.svg,.ico,.bmp,.avif" id="photoHub_file" type="file" value="" multiple="multiple" style="display: none;"><input accept=".mp4,.ogg.webm" id="photoHub_file2" type="file" value="" style="display: none;"> <main> <div class="leftBox "> <div class="m_t_10"></div> <p class="titleH5" style="padding-bottom: 12px;"> 拼接模式 </p> <ul class="sel_splicing"> <li class="on"> <div class="mode mode1"> <div></div> <div></div> <div></div> </div> <p> 字幕 </p> </li> <li class=""> <div class="mode mode3"> <div></div> <div></div> <div></div> <div></div> </div> <p> 1 列 </p> </li> <li class=""> <div class="mode mode4"> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> <div></div> </div> <p> N 列 </p> </li> </ul> <div> <div> <p class="titleH5" style="margin-top: 8px;"> 字幕高度 (15%) </p> <div class="rangePad"> <div class="vue-slider vue-slider-ltr" style="padding: 7px; width: auto; height: 2px; margin-top: 4px; flex-shrink: 0; z-index: 10; margin-right: 10px;"> <div class="vue-slider-rail"> <div class="vue-slider-process" style="height: 100%; top: 0px; left: 0%; width: 15%; transition-property: width, left; transition-duration: 0.5s;"> </div> <div aria-valuetext="15" class="vue-slider-dot" role="slider" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" tabindex="0" style="width: 14px; height: 14px; transform: translate(-50%, -50%); top: 50%; left: 15%; transition: left 0.5s ease 0s;"> <div class="vue-slider-dot-handle"></div> </div> </div> </div> </div> </div> <div class=" m_t_5 m_b_5"></div> <div> <p class="titleH5" style="margin-top: 8px;"> 字幕偏移 (0%) </p> <div class="rangePad"> <div class="vue-slider vue-slider-ltr" style="padding: 7px; width: auto; height: 2px; margin-top: 4px; flex-shrink: 0; z-index: 10; margin-right: 10px;"> <div class="vue-slider-rail"> <div class="vue-slider-process" style="height: 100%; top: 0px; left: 0%; width: 0%; transition-property: width, left; transition-duration: 0.5s;"> </div> <div aria-valuetext="0" class="vue-slider-dot" role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" tabindex="0" style="width: 14px; height: 14px; transform: translate(-50%, -50%); top: 50%; left: 0%; transition: left 0.5s ease 0s;"> <div class="vue-slider-dot-handle"></div> </div> </div> </div> </div> </div> </div> <div class=" m_t_10 m_b_10"></div> <!----> <!----> <div class=" m_t_10 m_b_10"></div> <div> <div style="display: flex;"> <!----> <!----> </div> <!----> <!----> <div class=" m_t_10 m_b_10"></div> <div> <div> <div> <p class="titleH5"> 宽度 <!----> <!----> </p> <div class="rangePad"> <div class="selectGroup tile" style="width: 100%; font-size: 16px; z-index: 11; margin-right: 10px;"> <div class="mini"><button class="button current isColor"><b> auto <span class="unit" style="display: none;"> px </span></b> <div class="more" style="right: 6px;"><i class="iconfont icon-chevron-down"></i></div> </button> <!----> </div> </div> </div> </div> </div> </div> <div class="hr m_t_20 m_b_20"></div> <p class="titleH5"> 设置 </p> <div class="config"> <div class="t"> <p> 格式 </p><button class="switchBut" style="transform: scale(0.712);"> <div class="after"></div> </button> </div> <!----> </div> <div class=" m_t_10 m_b_10"></div> <div class="config"> <div class="t"> <p> 画布 </p><button class="switchBut" style="transform: scale(0.712);"> <div class="after"></div> </button> </div> <!----> </div> <div class=" m_t_10 m_b_10"></div> <div class="config"> <div class="t"> <p> 图片 </p><button class="switchBut" style="transform: scale(0.712);"> <div class="after"></div> </button> </div> <!----> </div> <div class=" m_t_10 m_b_10"></div> <!----> </div> </div> <!----> <!----> <div class="inputBox" style="background-color: var(--bg2);"> <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;"> <h1>🎬 视频字幕拼接工具</h1> <div style="width: 100%;"></div> <h2 style="color: var(--text_sub);"> 和一些常规的图片拼接功能 </h2> <div style="width: 100%;"></div> <div></div> <div style="width: 100%; height: 0px;"></div> <div style="display: flex;"><button class="vue-button bg" style="margin-right: 15px;"><i class="iconfont icon-test-tube" style="transform: rotate(45deg); font-size: 20px;"></i> 测试图片 <!----> <!----> </button><button class="vue-button bg" style="margin-right: 15px;"><i class="iconfont icon-test-tube" style="transform: rotate(45deg); font-size: 20px;"></i> 测试视频 <!----> <!----> </button><a href="" target="_blank" class="vue-button bg" style="margin-right: 15px; color: var(--yellow); font-size: 13px;"><i class="iconfont icon-help-circle" style="font-size: 20px;"></i> 使用方法(文字) </a></div> <div style="width: 100%; height: 20px;"></div> <div class="ready"><label><i class="iconfont icon icon-monitor" style="font-size: 58px;"><small>+</small></i> <p style="margin-top: 10px;"><strong class="var_color"> 录屏 </strong></p> <p class="p2"><span style="display: block;"> 录屏 -&gt; 生成视频 -&gt; 视频截图 -&gt; 完成拼图 </span></p> </label></div> <div class="ready"><label for="photoHub_file2"><i class="iconfont icon icon-video"><small>+</small></i> <p><strong class="var_color"> 拖入或选择视频 </strong></p> <p class="p2"><span style="display: block;"> 支持输入格式 </span> <ul> <li><i class="iconfont icon-check"></i> mp4 </li> <li><i class="iconfont icon-check"></i> ogg </li> <li><i class="iconfont icon-check"></i> webm </li> </ul> </p> </label></div> <div class="ready"><label for="photoHub_file"><i class="iconfont icon icon-image-filter-hdr"><small>+</small></i> <p><strong class="var_color"> 拖入或选择图片 or Ctrl+v </strong></p> <p class="p2"><span style="display: block;"> 支持输入格式 </span> <ul> <li><i class="iconfont icon-check"></i> jpg </li> <li><i class="iconfont icon-check"></i> png </li> <li><i class="iconfont icon-check"></i> webp </li> <li><i class="iconfont icon-check"></i> gif </li> <li><i class="iconfont icon-check"></i> avif </li> <li><i class="iconfont icon-check"></i> svg </li> <li><i class="iconfont icon-check"></i> ico </li> <li><i class="iconfont icon-check"></i> bmp </li> </ul> </p> </label></div> </div> </div> </main> <!----> <!----> <!----> <!----> </div>
+	</div>
+
+</body>
+
+</html>
+<script>
+	window.CACHE_VERSION = '3.1.0'
+	window.CACHE_LIST = {}
+	window.CACHE_FN = _ => {
+		let cdnList = [{
+				name: 'app.js',
+				url: ['js/app.uej3pkls5.js']
+			}, {
+				name: 'avif_enc_worker_all_in.js',
+				url: ['js/avif_enc_worker_all_in.js']
+			}, {
+				name: 'imagequant_worker_all_in.js',
+				url: ['js/imagequant_worker_all_in.js']
+			}, {
+				name: 'squoosh_oxipng_worker_all_in.js',
+				url: ['js/squoosh_oxipng_worker_all_in.js']
+			}, {
+				name: 'mozjpeg_enc_worker_all_in.js',
+				url: ['js/mozjpeg_enc_worker_all_in.js']
+			}, {
+				name: 'svgo_worker_all_in.js',
+				url: ['js/svgo_worker_all_in.js']
+			}, {
+				name: 'wasm-im_worker_all_in.js',
+				url: ['js/wasm-im_worker_all_in.js']
+			}, {
+				name: 'logo.png',
+				url: ['images/logo.png']
+			}, {
+				name: '1920x1080.jpg',
+				url: ['images/1920x1080.jpg']
+			}, {
+				name: '750x1350.jpg',
+				url: ['images/750x1350.jpg']
+			}, {
+				name: '500x500.jpg',
+				url: ['images/500x500.jpg']
+			},
+			// 
+			{
+				name: 'magickApi.js',
+				url: ['js/magick/magickApi.js']
+			},
+			{
+				name: 'magick.js',
+				url: ['js/magick/magick.js']
+			}
+		]
+		// let cdnList = [{
+		// 		name: 'avif_enc_worker_all_in.js',
+		// 		url: ['./cache/js/avif_enc_worker_all_in.js']
+		// 	}, {
+		// 		name: 'imagequant_worker_all_in.js',
+		// 		url: ['./cache/js/imagequant_worker_all_in.js']
+		// 	}, {
+		// 		name: 'squoosh_oxipng_worker_all_in.js',
+		// 		url: ['./cache/js/squoosh_oxipng_worker_all_in.js']
+		// 	}, {
+		// 		name: 'mozjpeg_enc_worker_all_in.js',
+		// 		url: ['./cache/js/mozjpeg_enc_worker_all_in.js']
+		// 	}, {
+		// 		name: 'svgo_worker_all_in.js',
+		// 		url: ['./cache/js/svgo_worker_all_in.js']
+		// 	}, {
+		// 		name: 'wasm-im_worker_all_in.js',
+		// 		url: ['./cache/js/wasm-im_worker_all_in.js']
+		// 	}, {
+		// 		name: 'logo.png',
+		// 		url: ['./cache/images/logo.png']
+		// 	}, {
+		// 		name: '1920x1080.jpg',
+		// 		url: ['./cache/images/1920x1080.jpg']
+		// 	}, {
+		// 		name: '750x1350.jpg',
+		// 		url: ['./cache/images/750x1350.jpg']
+		// 	}, {
+		// 		name: '500x500.jpg',
+		// 		url: ['./cache/images/500x500.jpg']
+		// 	},
+		// 	// 
+		// 	{
+		// 		name: 'magickApi.js',
+		// 		url: ['./cache/js/magick/magickApi.js']
+		// 	},
+		// 	{
+		// 		name: 'magick.js',
+		// 		url: ['./cache/js/magick/magick.js']
+		// 	}
+		// ]
+
+		cdnList = cdnList.map(m => {
+			m.url = ['https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/v3.0/' + m.url[0]]
+			return m
+		})
+
+
+		function creatScript(src, name) {
+			let body = document.querySelector('body')
+			let script = document.createElement('script')
+			script.src = src
+			script.className = name
+			body.appendChild(script)
+		}
+
+
+		start(0)
+		async function start(num) {
+			if (num > 2) return
+			let ver = await idbKeyval.get('CACHE_VERSION')
+			let blobList = await idbKeyval.get('CACHE_LIST')
+			// 重新请求
+			if (!ver || ver !== window.CACHE_VERSION || !blobList) {
+				// await idbKeyval.clear()
+				let retList = await getCdnList(cdnList)
+				await idbKeyval.set('CACHE_LIST', retList)
+			}
+			blobList = await idbKeyval.get('CACHE_LIST')
+			let errorList = blobList.some(f => !f.blob || !f.name)
+			if (errorList) {
+				alert('错误')
+				await idbKeyval.del('CACHE_VERSION')
+				start(num + 1)
+				return
+			}
+			blobList.map(m => {
+				window.CACHE_LIST[m.name] = URL.createObjectURL(m.blob)
+			})
+			await idbKeyval.set('CACHE_VERSION', window.CACHE_VERSION)
+			creatScript(window.CACHE_LIST['app.js'], 'appJs')
+			// console.log('window.CACHE_LIST', window.CACHE_LIST);
+			// console.log('blobList', blobList);
+			// console.log(window.CACHE_LIST['magickApi.js']);
+			import(window.CACHE_LIST['magickApi.js'])
+				.then(module => {
+					Window.Magick = module
+					console.log(Window.Magick);
+				})
+				.catch(err => {
+					console.log(err);
+				});
+			console.log('加载完成✅', );
+
+
+		}
+		async function getCdnList(cdnList) {
+			let time = new Date().getTime()
+			let retList = []
+			document.querySelector('.loadPage').style.display = 'flex'
+			for (let index = 0; index < cdnList.length; index++) {
+				const cdn = cdnList[index];
+				// end
+				// await new Promise(_ => setTimeout(() => _(), 300))
+				let file = await fetchFile(cdn.url)
+				if (!file) {
+					file = {
+						name: null,
+						blob: null
+					}
+					console.error('GET ERRPR!', file);
+				}
+				retList.push({
+					name: cdn.name,
+					blob: file.blob
+				})
+				// console.log(cdn.name);
+				// if(cdn.name==='app.js'){
+				// 	creatScript(window.CACHE_LIST['app.js'],'appJs')
+				// }
+				console.log('+', index + 1)
+				let pNum = ((index + 1) / cdnList.length * 100).toFixed(0) + '%'
+				document.querySelector('.loadPage h2').textContent = pNum
+				document.querySelector('.loadPage .p div').style.width = pNum
+			}
+			// await idbKeyval.set('cdnList', retList)
+			time = new Date().getTime() - time
+			time = (time / 1000).toFixed(2)
+			console.log('缓存完成！', time);
+			document.querySelector('.loadPage').style.display = 'none'
+
+			return retList
+
+		}
+		async function fetchFile(url = []) {
+			return new Promise(async (res, rej) => {
+				let blob;
+				for (let index = 0; index < url.length; index++) {
+					const element = url[index];
+					blob = await fetch(element)
+						.then(d => {
+							if (d.status === 200) return d.blob()
+							else return null
+						})
+						.catch(e => {
+							console.log(e);
+							return null
+						})
+					if (blob) {
+						res({
+							blob,
+							index,
+							element
+						})
+						break
+					} else {
+						console.error('ERROR URL:', element);
+					}
+				}
+				if (!blob) res(null)
+			})
+
+
+
+		}
+	}
+	window.CACHE_FN()
+</script>
