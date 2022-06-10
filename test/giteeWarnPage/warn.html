@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Helvetica,Arial,  sans-serif;
+        }
+
+        .warnPageBox {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            z-index: 9999999;
+
+        }
+        
+        .warnPageBox > .bg{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .warnPageBox > .con{
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            width: 80%;
+            max-height: 100%;
+            overflow-y: auto;
+            border-radius: 30px;
+            background-color:seashell;
+            padding: 40px;
+        }
+        .warnPageBox a{
+            color: royalblue;
+        }
+        .warnPageBox .hr{
+            height: 1px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            margin: 12px 0;
+        }
+        .warnPageBox button{
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color:slategrey;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            margin-right: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warnPageBox">
+        <div class="bg">
+
+        </div>
+        <div class="con">
+            <h1>⚠️ 不可访问预警</h1>
+            <br>
+            <p>这个图片处理工具依赖Gitee提供的Page服务，我感觉以后可能有
+                <a href=""></a>
+                <a href="https://www.zhihu.com/question/535820467/answer/2520351399" target="_blank">
+                    关闭的风险🦀️
+                </a>，所以在这里提供预备方案。</p>
+            <div class="hr"></div>
+            <b>方案01</b>
+            <p>
+                <a href="" target="_blank">
+                    ⬇️ 离线版Zip(17Mb)
+                </a>
+                <br>
+                <i>源代码html，使用浏览器打开index.html和splicing.html即可使用</i>
+            </p>
+            <br>
+            <b>方案02 <small>其他链接</small> </b>
+            <p>
+                
+                <a href="https://webp2jpg-online-b1u.pages.dev" target="_blank">
+                    🔗 Cloudflare Page
+                </a>
+                |
+                <a href="https://webp2jpg-online-drab.vercel.app" target="_blank">
+                    🔗 Vercel Page
+                </a>
+                |
+
+                <a href="https://renzhezhilu.github.io/webp2jpg-online/" target="_blank">
+                    🔗 Github Page
+                </a>
+            </p>
+            <br>
+            <br>
+            <br>
+            <p>
+                <button>关闭</button>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!-- 
+https://webp2jpg-online-b1u.pages.dev/cdn/v3.0/images/logo.png
+
+https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/v3.0/
+
+./cdn/v3.0/
+
+https://webp2jpg-online-drab.vercel.app/ -->
