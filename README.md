@@ -1,11 +1,11 @@
 <center>
-<img width="300" src="./doc/images/3.png" />
+<!-- <img width="300" src="./doc/images/3.png" /> -->
 <h1>Webp2jpg-online</h1>
 <!-- from shields.io/ -->
 
-<!-- ![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/badges/01.svg)
+![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/badges/01.svg)
 ![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/badges/02.svg)
-![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/badges/03.svg) -->
+![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/badges/03.svg)
 
 </center>
 
@@ -24,7 +24,7 @@
     <img width="20" src="./doc/images/1.png" />
     多功能图片转换器
 </h2>
-<img width="300" src="./cdn/webp2jpg_v3_ui.jpg" />
+<img width="400" src="./cdn/webp2jpg_v3_ui.jpg" />
 
 
 - [x] 支持将`psd`、`psb`、`hdr`、`heic`、`heif`、`tiff`、`jpg`、`gif`、`png`、`svg`、`bmp`、`tga`转换成`jpg`、`webp`、`png`、`gif`、`avif`
@@ -47,7 +47,7 @@
     视频字幕拼接工具
 </h2>
 
-<img width="300" src="./cdn/splicing/ui.jpg" />
+<img width="400" src="./cdn/splicing/ui.jpg" />
 
 把视频的字幕拼接成长图片大家都见过吧～ 这个工具可以轻松制作所有形式的此类图片。
 
