@@ -1,133 +1,89 @@
 <center>
-
-![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/og_image2.png)
-
+<img width="300" src="./doc/images/3.png" />
+<h1>Webp2jpg-online</h1>
 <!-- from shields.io/ -->
 
-![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/badges/01.svg)
+<!-- ![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/badges/01.svg)
 ![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/badges/02.svg)
-![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/badges/03.svg)
+![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/badges/03.svg) -->
 
 </center>
 
- 🇺🇸[English](./doc/readme_en.md)    🇯🇵[日本語](./doc/readme_jp.md)
+此工具箱包含图片转换和图片拼接，纯前端实现、速度快、保护隐私，支持离线使用。
+    
+    Q:为什么会命名webp2jpg？
+    A:因为最开始是为了把webp转成jpg，就一直用着了。
 
-
-`2021-04-07`
-
-- 我家的狗看我硬生生把这个项目写成💩山，叫我不要献丑了，连夜帮我做好了各个模块的demo:[browser-image-conversion-dome](https://github.com/renzhezhilu/browser-image-conversion-dome) 🤪
-
-
-## webp2jpg-online 介绍  
-![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/page_ui.jpg)
-
->我常常需要把webp图片转成jpg格式，很多在线转化提供的功能都需要上传文件，不爽。有非上传的但是ui很难用，谷歌一番后了解到html5自带接口的canvas.toBlob有转换图片格式的功能，索性就自己搞这个webp2jpg-online。
-
-在线图片格式转化器, 可将jpeg、jpg、png、gif、webp、svg、ico、bmp文件转化为jpeg、png、webp、webp动画、gif文件。无需上传文件，本地即可完成转换
-
-
-## 主要功能
-[📖 详细功能介绍->知乎](https://zhuanlan.zhihu.com/p/186716893)
-
-    ✓ 无需上传，使用浏览器自身进行转换
-    ✓ 批量转换输出webp、jpeg、png、base64、8位png(实验)、gif动图(实验)、webp动图(实验)
-    ✓ 输出指定大小(webp、jpeg)(实验)
-    ✓ 输出颜色数量(gif、png-8)
-    ✓ 选项可自定增加或删除并持久化
-
-![title](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/format2.png)
-
+<!-- <img width="300"  src="https://api.star-history.com/svg?repos=renzhezhilu/webp2jpg-online&type=Date" /> -->
 
 ## 在线地址
-https://renzhezhilu.gitee.io/webp2jpg-online/ 国内访问较快
+[图片转换](https://imagestool.com/webp2jpg-online/) 
+| [图片拼接](https://imagestool.com/webp2jpg-online/splicing.html)
 
-https://renzhezhilu.github.io/webp2jpg-online/
-
-
-## demo
-
-![demo](https://cdn.jsdelivr.net/gh/renzhezhilu/webp2jpg-online/cdn/v2_demo.gif)
-
-
-## 计划
-[ ] 抽离主要功能做成[img2img.js](https://github.com/renzhezhilu/img2img)模块 (未开始)
+<h2>
+    <img width="20" src="./doc/images/1.png" />
+    多功能图片转换器
+</h2>
+<img width="300" src="./cdn/webp2jpg_v3_ui.jpg" />
 
 
-## 更新日志
-
-### v2.2 -2020.10.09
-    新增格式-mozjpeg,压缩率更高/画质更好的jpg
-    新增格式-avif,逆天的压缩率
-    修复-对比模式
-### v2.1 2020-08-17
-    新增功能-输出指定大小
-    新增功能-颜色数量选项(gif、png-8)
-    新增功能-自动宽度输出
-    新增格式-8位png
-    新增格式-base64
-    修复-选项删除功能
-    修复-多文件下载遗漏
-    修复-压缩包文件非英数乱码
-    修复-大写后缀不识别
-    修复-强调提示不支持文件格式
-    删除-ico格式输出(假的ico实际还是png)
-### v2.0 2020-06-26
-    使用vue重构
-    支持gif动图转webp动图
-    尺寸和画质可自定义
-    选项数据持久化
-    可开启图片追加模式
-    可开启转换效果对比
-    优化了UI
-    支持多语言
-    页面文件也变大了,初次打开会比较慢，第二次之后就快了
-### [v1.0](https://github.com/renzhezhilu/webp2jpg-online/tree/v1.0) 2020-01-14
-    项目建立
-    支持jpeg、webp、png互转
-    可选输出宽度
-    可选输出画质
-    可批量处理
+- [x] 支持将`psd`、`psb`、`hdr`、`heic`、`heif`、`tiff`、`jpg`、`gif`、`png`、`svg`、`bmp`、`tga`转换成`jpg`、`webp`、`png`、`gif`、`avif`
+- [x] 支持`jpg`压缩(选择jpg-tiny)
+- [x] 支持`png`压缩(png-tiny)
+- [x] 支持`svg`压缩(svg-tiny)
+- [x] 支持添加图片水印、文字水印
+- [x] 支持按宽度、高度、比例修改尺寸
+- [x] 支持动图`webp`和`gif`互转(webp-animation和gif-animation)
+- [x] 支持动图水印 
+- [x] 其他:base64输出，持久化选项数据、深色/浅色UI切换、对图片进行旋转和翻转、批量处理(1000张以内)、截图后按Ctrl+V导入
 
 
 
-### 平台支持情况
+<br/>
+<br/>
 
-||谷歌Chrome|火狐Firefox|苹果Safari|微软Edge|IE|
-|---|-----|----|----|-----|---|
-|Windows|✔️|✔️|-|✔️| ❌ 蛤？|
-|Mac OS|✔️|✔️|☑️|✔️|-|
-|Iphone|☑️|☑️| ✔️ | - |-|
-|Android|?|?|?| -|-|
-️️
-> ✔️ 运行良好 ☑️ 部分支持 ❌ 不支持 ? 未测试
+<h2>
+    <img width="20" src="./doc/images/2.png" />
+    视频字幕拼接工具
+</h2>
 
-## ❤️感谢推荐
-#### ruanyifeng.com
-[科技爱好者周刊（第 114 期）：U 盘化生存和 Uber-job](http://www.ruanyifeng.com/blog/2020/07/weekly-issue-114.html)
+<img width="300" src="./cdn/splicing/ui.jpg" />
 
-#### frontendfoc.us
-[Multi-Functional Image Converter: An Online Tool to Batch Convert Images to Various Formats ](https://frontendfoc.us/issues/511)
+把视频的字幕拼接成长图片大家都见过吧～ 这个工具可以轻松制作所有形式的此类图片。
 
-## 图片格式转换的核心原理
-### Canvas API
 
-[HTMLCanvasElement.toBlob()](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toBlob)
 
-<!-- https://codepen.io/random233/pen/PowBBaa?editors=1000 -->
-``` javascript
-canvas.toBlob(callback, type, encoderOptions);
-```
-### WebAssembly
-[MDN:WebAssembly doc](https://developer.mozilla.org/zh-CN/docs/WebAssembly)
 
-[wasm-im ](https://github.com/mk33mk333/wasm-im)
 
-[文章：WebAssembly实战-在浏览器中使用ImageMagick](https://cloud.tencent.com/developer/article/1554176) 
- _[(快照)](https://renzhezhilu.github.io/webp2jpg-online/doc/WebAssembly实战-在浏览器中使用ImageMagick.html)
+### 工作流程:
 
-## 依赖
-[vue](https://github.com/vuejs/vue#readme)
+- 1.录屏
+- 2.生成视频
+- 3.一边播放视频一边截图
+- 4.调整图片
+- 5.完成
+  
+### 功能:
 
-[vue-clipboard2](https://github.com/Inndy/vue-clipboard2#readme) 文本复制
 
-[vue-i18n](https://github.com/kazupon/vue-i18n#readme) 多语言
+- [x] 支持录屏
+- [x] 支持导入`mp4`文件
+- [x] 录屏或导入后，可快捷键截图
+- [x] 支持对导入后的图片进行裁切、拖动排序
+- [x] 支持手机竖屏
+- [x] 支持其他常规拼接功能(单列/单行、多行多列)
+- [x] 支持调整边距和边框样式
+- [x] 无损输出，不存在图片模糊的问题
+- [x] 支持选择导出格式(`jpg`、`png`、`webp`)
+
+### 小贴士
+- `jpg`尺寸上限 `65525`
+- `webp`尺寸上限 `16522`
+- `png`尺寸上限 `65525`
+
+
+## 开发者
+本仓库为生产环境版本，可任意使用。
+
+如果你想获得源代码和技术细节分享，欢迎加入[ohPic]()。
+
