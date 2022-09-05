@@ -84,6 +84,15 @@ Splicing the subtitles of the video into a picture has everyone seen it~ This to
 - `webp` size limit `16522`
 - `png` size limit is `65525`
 
+## ❤ thanks
+
+#### ruanyifeng.com
+[科技爱好者周刊（第 114 期）：U 盘化生存和 Uber-job](http://www.ruanyifeng.com/blog/2020/07/weekly-issue-114.html)
+
+#### frontendfoc.us
+[Multi-Functional Image Converter: An Online Tool to Batch Convert Images to Various Formats ](https://frontendfoc.us/issues/511)
+
+#### [webp2jpg-online-demo](https://github.com/renzhezhilu/webp2jpg-online-demo)
 
 ## Developer
 This repository is the production environment version(3.0) and can be used arbitrarily.

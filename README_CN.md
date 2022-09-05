@@ -84,6 +84,15 @@
 - `webp`尺寸上限 `16522`
 - `png`尺寸上限 `65525`
 
+## ❤ thanks
+
+#### ruanyifeng.com
+[科技爱好者周刊（第 114 期）：U 盘化生存和 Uber-job](http://www.ruanyifeng.com/blog/2020/07/weekly-issue-114.html)
+
+#### frontendfoc.us
+[Multi-Functional Image Converter: An Online Tool to Batch Convert Images to Various Formats ](https://frontendfoc.us/issues/511)
+
+#### [webp2jpg-online-demo](https://github.com/renzhezhilu/webp2jpg-online-demo)
 
 ## 开发者
 本仓库为生产环境版本(3.0)，可任意使用。
