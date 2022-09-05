@@ -12,7 +12,7 @@ English | [简体中文](./README_CN.md) | [日本語](./README_JP.md)
 
 </center>
 
-This toolbox includes image conversion and image stitching, pure front-end implementation, fast speed, privacy protection, and offline use.
+This toolbox includes image conversion and image stitching, pure front-end implementation, fast speed, privacy protection, and offline use,20 languages supported.
     
     Q: Why is it named webp2jpg?
     A: Because it was originally to convert webp to jpg, I have been using it all the time.
@@ -86,4 +86,6 @@ Splicing the subtitles of the video into a picture has everyone seen it~ This to
 
 
 ## Developer
-This repository is the production environment version and can be used arbitrarily.
+This repository is the production environment version(3.0) and can be used arbitrarily.
+
+<img width="600"  src="https://api.star-history.com/svg?repos=renzhezhilu/webp2jpg-online&type=Date" />

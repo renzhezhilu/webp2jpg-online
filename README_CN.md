@@ -12,12 +12,12 @@
 
 </center>
 
-此工具箱包含图片转换和图片拼接，纯前端实现、速度快、保护隐私，支持离线使用。
+此工具箱包含图片转换和图片拼接，纯前端实现、速度快、保护隐私，支持离线使用,
+支持20种语言。
     
     Q:为什么会命名webp2jpg？
     A:因为最开始是为了把webp转成jpg，就一直用着了。
 
-<!-- <img width="300"  src="https://api.star-history.com/svg?repos=renzhezhilu/webp2jpg-online&type=Date" /> -->
 
 ## 在线地址
 [图片转换](https://imagestool.com/webp2jpg-online/) 
@@ -86,7 +86,9 @@
 
 
 ## 开发者
-本仓库为生产环境版本，可任意使用。
+本仓库为生产环境版本(3.0)，可任意使用。
+
+<img width="600"  src="https://api.star-history.com/svg?repos=renzhezhilu/webp2jpg-online&type=Date" />
 
 <!-- 如果你想获得源代码和技术细节分享，欢迎加入[ohPic](https://github.com/ohPic)。 -->
 
