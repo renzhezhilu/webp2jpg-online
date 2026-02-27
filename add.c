@@ -1,0 +1,2 @@
+import a
+a=c
